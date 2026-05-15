@@ -1,35 +1,58 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/landing/Reveal";
 import { proofStats } from "@/lib/landing-data";
 
 function AnimatedCount({ target }: { target: number }) {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
-    const startedAt = performance.now();
-    const duration = 1400;
+    const element = ref.current;
+
+    if (!element) {
+      return;
+    }
+
     let frame = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-    const tick = (now: number) => {
-      const progress = Math.min((now - startedAt) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(target * eased));
+          observer.unobserve(entry.target);
 
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick);
-      }
-    };
+          const startedAt = performance.now();
+          const duration = 1400;
 
-    frame = window.requestAnimationFrame(tick);
+          const tick = (now: number) => {
+            const progress = Math.min((now - startedAt) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(target * eased));
+
+            if (progress < 1) {
+              frame = window.requestAnimationFrame(tick);
+            }
+          };
+
+          frame = window.requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(element);
 
     return () => {
       window.cancelAnimationFrame(frame);
+      observer.disconnect();
     };
   }, [target]);
 
-  return <>{count}</>;
+  return <span ref={ref}>{count}</span>;
 }
 
 export default function ProofStrip() {

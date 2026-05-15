@@ -29,7 +29,7 @@ export default function FloatingWhatsapp() {
       aria-label="Chat on WhatsApp"
       className={isVisible ? "on" : undefined}
     >
-      💬
+      {"\u{1F4AC}"}
     </a>
   );
 }

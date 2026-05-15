@@ -1,14 +1,38 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/landing/Reveal";
 import { whyInflammationContent } from "@/lib/landing-data";
 
 export default function WhyInflammation() {
   const barRef = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(barRef, { once: true, amount: 0.4 });
-  const reducedMotion = useReducedMotion();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = barRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section id="why">
@@ -47,11 +71,12 @@ export default function WhyInflammation() {
           <div className="inflammation-bar" ref={barRef}>
             <div className="ibar-label">{whyInflammationContent.barLabel}</div>
             <div className="ibar-track">
-              <motion.div
+              <div
                 className="ibar-fill"
-                initial={{ width: reducedMotion ? `${whyInflammationContent.fillPercent}%` : "0%" }}
-                animate={{ width: inView ? `${whyInflammationContent.fillPercent}%` : reducedMotion ? `${whyInflammationContent.fillPercent}%` : "0%" }}
-                transition={{ duration: reducedMotion ? 0 : 1.4, ease: [0.25, 0, 0.1, 1] }}
+                style={{
+                  width: isVisible ? `${whyInflammationContent.fillPercent}%` : "0%",
+                  transition: "width 1.4s cubic-bezier(.25,0,.1,1)",
+                }}
               />
             </div>
             <div className="ibar-markers">

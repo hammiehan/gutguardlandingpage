@@ -130,11 +130,11 @@ export const landingTheme: LandingTheme = {
 };
 
 export const heroContent = {
-  tag: "For Filipinos 35–55",
+  tag: "For Filipinos 35\u201355",
   titleLead: "Your doctor measures\ndisease.",
   titleAccent: "Nobody measures\nwhat comes before it.",
   paragraphs: [
-    "That something is chronic inflammation — the documented upstream driver across virtually every major disease category. Your inflammatory load is measurable. It has a direction.",
+    "That something is chronic inflammation \u2014 the documented upstream driver across virtually every major disease category. Your inflammatory load is measurable. It has a direction.",
     "And once you can see the direction, you can change it. GutGuard BioScan puts a number on your inflammation. Your enrolled independent physician monitors your GLIS wellness score. A matched protocol moves it. The direction is now yours.",
   ],
   trustItems: ["FDA-PH Registered", "Physician-reviewed", "90-day guarantee"],
@@ -144,31 +144,31 @@ export const heroRingStates: Record<HeroState, HeroRingState> = {
   before: {
     score: 74,
     progressDegrees: 266,
-    verdict: "⚠ Elevated Inflammation",
+    verdict: "\u26A0 Elevated Inflammation",
     color: "#D42020",
     glow: "rgba(212,32,32,.5)",
     chips: [
-      { label: "hs-CRP ↑", tone: "hi" },
-      { label: "NLR ↑", tone: "hi" },
-      { label: "Glucose ↑", tone: "mid" },
-      { label: "Ferritin ↑", tone: "mid" },
-      { label: "HDL ✓", tone: "ok" },
-      { label: "ALT ✓", tone: "ok" },
+      { label: "hs-CRP \u2191", tone: "hi" },
+      { label: "NLR \u2191", tone: "hi" },
+      { label: "Glucose \u2191", tone: "mid" },
+      { label: "Ferritin \u2191", tone: "mid" },
+      { label: "HDL \u2713", tone: "ok" },
+      { label: "ALT \u2713", tone: "ok" },
     ],
   },
   after: {
     score: 31,
     progressDegrees: 111,
-    verdict: "✓ Inflammation Controlled",
+    verdict: "\u2713 Inflammation Controlled",
     color: "#5CB882",
     glow: "rgba(92,184,130,.45)",
     chips: [
-      { label: "hs-CRP ✓", tone: "ok" },
-      { label: "NLR ✓", tone: "ok" },
-      { label: "Glucose ✓", tone: "ok" },
-      { label: "Ferritin ✓", tone: "ok" },
-      { label: "HDL ✓", tone: "ok" },
-      { label: "ALT ✓", tone: "ok" },
+      { label: "hs-CRP \u2713", tone: "ok" },
+      { label: "NLR \u2713", tone: "ok" },
+      { label: "Glucose \u2713", tone: "ok" },
+      { label: "Ferritin \u2713", tone: "ok" },
+      { label: "HDL \u2713", tone: "ok" },
+      { label: "ALT \u2713", tone: "ok" },
     ],
   },
 };
@@ -207,20 +207,20 @@ export const whyInflammationContent = {
   paragraph:
     "Peer-reviewed literature links chronic low-grade inflammation to all of the following. You don't need to develop any of them. You need to know your direction before one of them becomes your diagnosis.",
   diseases: [
-    { label: "Cardiovascular", icon: "❤️", note: "CRP, NLR, fibrinogen" },
-    { label: "Neurological", icon: "🧠", note: "IL-6, TNF-α links" },
-    { label: "Metabolic", icon: "🩸", note: "Insulin resistance" },
-    { label: "Autoimmune", icon: "🦠", note: "Gut-immune axis" },
-    { label: "Pulmonary", icon: "🫁", note: "Airways, surfactant" },
-    { label: "Musculoskeletal", icon: "🦴", note: "Joint, tendon load" },
+    { label: "Cardiovascular", icon: "\u2764\uFE0F", note: "CRP, NLR, fibrinogen" },
+    { label: "Neurological", icon: "\uD83E\uDDE0", note: "IL-6, TNF-\u03B1 links" },
+    { label: "Metabolic", icon: "\uD83E\uDE78", note: "Insulin resistance" },
+    { label: "Autoimmune", icon: "\uD83E\uDDA0", note: "Gut-immune axis" },
+    { label: "Pulmonary", icon: "\uD83E\uDEC1", note: "Airways, surfactant" },
+    { label: "Musculoskeletal", icon: "\uD83E\uDDB4", note: "Joint, tendon load" },
   ] satisfies DiseaseCard[],
-  barLabel: "Inflammatory Load — Where Are You On This Spectrum?",
+  barLabel: "Inflammatory Load \u2014 Where Are You On This Spectrum?",
   spectrumLabels: ["Optimal", "Elevated", "High", "Critical"],
   fillPercent: 68,
 };
 
 export const wellnessDisclaimerText =
-  "GutGuard BioScan is a wellness monitoring service — not a diagnostic test and not a treatment for any disease. The GLIS score does not replace your doctor’s diagnosis or any prescribed medical treatment. Always continue any treatment your physician has prescribed.";
+  "GutGuard BioScan is a wellness monitoring service \u2014 not a diagnostic test and not a treatment for any disease. The GLIS score does not replace your doctor\u2019s diagnosis or any prescribed medical treatment. Always continue any treatment your physician has prescribed.";
 
 export const howItWorksContent = {
   heading: "Control the Direction.",
@@ -231,7 +231,7 @@ export const howItWorksContent = {
     {
       number: "1",
       title: "Upload your existing blood panel",
-      body: "Any recent CBC, lipid panel, or metabolic panel from your clinic or laboratory. We extract 8 inflammatory markers from what you already have — no new blood draw, no clinic visit.",
+      body: "Any recent CBC, lipid panel, or metabolic panel from your clinic or laboratory. We extract 8 inflammatory markers from what you already have \u2014 no new blood draw, no clinic visit.",
       badge: "10 minutes from your phone",
       badgeTone: "blue",
       icon: "file",
@@ -248,7 +248,7 @@ export const howItWorksContent = {
       number: "3",
       title:
         "Your physician-approved GutGuard Lifestyle Protocol activates. Your score moves.",
-      body: "Your Pre→Pro→Postbiotic formula is matched to your specific GLIS score — not a generic protocol. Re-scanned at Day 30, 60, and 90. If the score isn't moving at Day 30, your physician adjusts the protocol.",
+      body: "Your Pre\u2192Pro\u2192Postbiotic formula is matched to your specific GLIS score \u2014 not a generic protocol. Re-scanned at Day 30, 60, and 90. If the score isn't moving at Day 30, your physician adjusts the protocol.",
       badge: "Monitored every 30 days",
       badgeTone: "green",
       icon: "pulse",
@@ -260,7 +260,7 @@ export const markersSectionContent = {
   tag: "The BioScan",
   heading: "Eight markers.\nOne direction.",
   paragraph:
-    "The GLIS score is calculated from 8 markers your doctor already orders. Each one is a documented inflammatory signal. Together they give a number — and a trajectory.",
+    "The GLIS score is calculated from 8 markers your doctor already orders. Each one is a documented inflammatory signal. Together they give a number \u2014 and a trajectory.",
   markers: [
     {
       shortName: "hs-CRP",
@@ -307,37 +307,37 @@ export const markersSectionContent = {
     {
       label: "Component 1",
       name: "Prebiotics",
-      body: "Patented prebiotics — feeds the gut microbiome selectively",
+      body: "Patented prebiotics \u2014 feeds the gut microbiome selectively",
     },
     {
       label: "Component 2",
       name: "Probiotics",
-      body: "Nano-encapsulated target-specific strains — reaches the gut alive",
+      body: "Nano-encapsulated target-specific strains \u2014 reaches the gut alive",
     },
     {
-      label: "Component 3 — Postbiotics",
-      name: "Urolithin-A · L-Tryptophan",
+      label: "Component 3 \u2014 Postbiotics",
+      name: "Urolithin-A \u00B7 L-Tryptophan",
       body: "Activates the Mitochondria Bio-regeneration System (MBS)",
     },
   ] satisfies FormulaCard[],
 };
 
 export const legalFirewallText =
-  "The research associations above are drawn from peer-reviewed literature and describe population-level findings — they are not product claims. GutGuard SynBIOTIC+ is a licensed lifestyle food supplement, not a treatment for any disease. The GLIS score is an internal wellness monitoring framework — it has not been independently peer-reviewed or validated as a clinical diagnostic instrument. Continue any treatment prescribed by your physician.";
+  "The research associations above are drawn from peer-reviewed literature and describe population-level findings \u2014 they are not product claims. GutGuard SynBIOTIC+ is a licensed lifestyle food supplement, not a treatment for any disease. The GLIS score is an internal wellness monitoring framework \u2014 it has not been independently peer-reviewed or validated as a clinical diagnostic instrument. Continue any treatment prescribed by your physician.";
 
 export const offerSectionContent = {
   tag: "The Protocol",
   titleLead: "Not a supplement.",
-  titleAccent: "A direction — with a doctor watching it change.",
+  titleAccent: "A direction \u2014 with a doctor watching it change.",
   paragraph:
-    "Choose the protocol that matches your commitment. Every tier includes physician BioScan review, GLIS scoring, and a matched Pre→Pro→Postbiotic formula. Higher tiers extend your monitoring and supply.",
+    "Choose the protocol that matches your commitment. Every tier includes physician BioScan review, GLIS scoring, and a matched Pre\u2192Pro\u2192Postbiotic formula. Higher tiers extend your monitoring and supply.",
   disclaimerTitle: "Important:",
   disclaimerBody:
-    "GutGuard SynBIOTIC+ is a licensed lifestyle food supplement — not a prescription medicine. The GLIS score is a wellness indicator — not a medical diagnosis. Do not discontinue any prescribed medication or treatment based on your GLIS score. Always consult your physician.",
+    "GutGuard SynBIOTIC+ is a licensed lifestyle food supplement \u2014 not a prescription medicine. The GLIS score is a wellness indicator \u2014 not a medical diagnosis. Do not discontinue any prescribed medication or treatment based on your GLIS score. Always consult your physician.",
   includes: [
     "BioScan + GLIS Score",
     "Physician review & approval",
-    "Matched Pre→Pro→Postbiotic formula",
+    "Matched Pre\u2192Pro\u2192Postbiotic formula",
     "Urolithin-A + L-Tryptophan Postbiotics",
     "90-day money-back guarantee",
   ],
@@ -346,49 +346,49 @@ export const offerSectionContent = {
 export const offerCards: OfferCard[] = [
   {
     name: "Trial",
-    capsuleSummary: "10 capsules · 1 bottle · 1 BioScan",
-    pricePerCapsule: "₱130",
-    total: "₱1,299 total · 10 caps",
+    capsuleSummary: "10 capsules \u00B7 1 bottle \u00B7 1 BioScan",
+    pricePerCapsule: "\u20B1130",
+    total: "\u20B11,299 total \u00B7 10 caps",
     review: "1 BioScan review included",
     href: "gutguard-patient-portal-v33.html",
-    ctaLabel: "Start Trial →",
+    ctaLabel: "Start Trial \u2192",
   },
   {
     name: "Start",
-    capsuleSummary: "40 capsules · 4 bottles · 1 BioScan",
-    pricePerCapsule: "₱115",
-    total: "₱4,900 total · 40 caps",
+    capsuleSummary: "40 capsules \u00B7 4 bottles \u00B7 1 BioScan",
+    pricePerCapsule: "\u20B1115",
+    total: "\u20B14,900 total \u00B7 40 caps",
     review: "1 BioScan review included",
     href: "gutguard-patient-portal-v33.html",
-    ctaLabel: "Start Protocol →",
+    ctaLabel: "Start Protocol \u2192",
   },
   {
     name: "Grow",
-    capsuleSummary: "120 capsules · 12 bottles · 3 BioScans",
-    pricePerCapsule: "₱103",
-    total: "₱13,000 total · 120 caps",
-    review: "3 BioScan reviews · Day 0, 45, 90",
+    capsuleSummary: "120 capsules \u00B7 12 bottles \u00B7 3 BioScans",
+    pricePerCapsule: "\u20B1103",
+    total: "\u20B113,000 total \u00B7 120 caps",
+    review: "3 BioScan reviews \u00B7 Day 0, 45, 90",
     href: "gutguard-patient-portal-v33.html",
-    ctaLabel: "Start Grow →",
+    ctaLabel: "Start Grow \u2192",
     featured: true,
   },
   {
     name: "Power",
-    capsuleSummary: "400 capsules · 40 bottles · 3 BioScans",
-    pricePerCapsule: "₱87",
-    total: "₱39,000 total · 400 caps",
-    review: "3 BioScan reviews · full-cycle supply",
+    capsuleSummary: "400 capsules \u00B7 40 bottles \u00B7 3 BioScans",
+    pricePerCapsule: "\u20B187",
+    total: "\u20B139,000 total \u00B7 400 caps",
+    review: "3 BioScan reviews \u00B7 full-cycle supply",
     href: "gutguard-patient-portal-v33.html",
-    ctaLabel: "Start Power →",
+    ctaLabel: "Start Power \u2192",
   },
 ];
 
 export const doctorStripContent = {
   name: "Dr. Shane Animas, MD",
   title:
-    "Medical Director (oversight & advisory) · IG International / GutGuard · Internal Medicine",
+    "Medical Director (oversight & advisory) \u00B7 IG International / GutGuard \u00B7 Internal Medicine",
   quote:
-    "Every patient who submits a BioScan gets a physician's eyes on their data before anything is activated. The protocol is matched to a specific GLIS number — not a generic template. If the score isn't moving at Day 30, we adjust it.",
+    "Every patient who submits a BioScan gets a physician's eyes on their data before anything is activated. The protocol is matched to a specific GLIS number \u2014 not a generic template. If the score isn't moving at Day 30, we adjust it.",
   stats: [
     {
       value: "127",
@@ -402,7 +402,7 @@ export const doctorStripContent = {
       color: "var(--bl)",
     },
     {
-      value: "PRC Verified",
+      value: "PRC\nVerified",
       label: "Licensed physician",
       color: "var(--gld)",
     },
@@ -414,12 +414,12 @@ export const patientVoicesContent = {
   titleLead: "What it looks like",
   titleAccent: "when the number moves.",
   paragraph:
-    "Two patients. Same frustration — \"normal labs\" while feeling everything but normal. Different scores, same direction.",
+    "Two patients. Same frustration \u2014 \"normal labs\" while feeling everything but normal. Different scores, same direction.",
   threads: [
     {
       initials: "MC",
       name: "M. Cruz, 47",
-      meta: "Grow Protocol · GenSan · GLIS 68 → 29",
+      meta: "Grow Protocol \u00B7 GenSan \u00B7 GLIS 68 \u2192 29",
       avatarColor: "var(--ter)",
       messages: [
         {
@@ -428,7 +428,7 @@ export const patientVoicesContent = {
         },
         {
           direction: "outgoing",
-          text: "That's exactly what GLIS 68 looks like. Your hs-CRP and NLR are both in the high-normal zone — technically fine individually, but together they tell a different story.",
+          text: "That's exactly what GLIS 68 looks like. Your hs-CRP and NLR are both in the high-normal zone \u2014 technically fine individually, but together they tell a different story.",
         },
         {
           direction: "incoming",
@@ -436,28 +436,28 @@ export const patientVoicesContent = {
         },
         {
           direction: "outgoing",
-          text: "That tracks — the sleep improvement usually shows before the score drops significantly. Day 60 re-scan is next. Keep going.",
+          text: "That tracks \u2014 the sleep improvement usually shows before the score drops significantly. Day 60 re-scan is next. Keep going.",
         },
         {
           direction: "incoming",
-          text: "Day 90. GLIS 29. Diba 68 siya dati? Hindi ko mapigilang iyak 😭",
-          time: "✓✓ Read",
+          text: "Day 90. GLIS 29. Diba 68 siya dati? Hindi ko mapigilang iyak \uD83D\uDE2D",
+          time: "\u2713\u2713 Read",
         },
       ],
     },
     {
       initials: "RB",
       name: "R. Buenaventura, 52",
-      meta: "Power Protocol · Davao · GLIS 74 → 31",
+      meta: "Power Protocol \u00B7 Davao \u00B7 GLIS 74 \u2192 31",
       avatarColor: "var(--grn)",
       messages: [
         {
           direction: "incoming",
-          text: "My doctor says I'm healthy. But my knees, my back — parang every day may inflammation. Sabi ko nga \"doctor-healthy\" lang ako.",
+          text: "My doctor says I'm healthy. But my knees, my back \u2014 parang every day may inflammation. Sabi ko nga \"doctor-healthy\" lang ako.",
         },
         {
           direction: "outgoing",
-          text: "GLIS 74. You're right that your standard labs look fine — but your NLR is 3.9 and ferritin is elevated. That's a real signal. You're not imagining it.",
+          text: "GLIS 74. You're right that your standard labs look fine \u2014 but your NLR is 3.9 and ferritin is elevated. That's a real signal. You're not imagining it.",
         },
         {
           direction: "incoming",
@@ -465,12 +465,12 @@ export const patientVoicesContent = {
         },
         {
           direction: "outgoing",
-          text: "Power Protocol for your score range. Day 30 re-scan scheduled — we'll see the first movement there.",
+          text: "Power Protocol for your score range. Day 30 re-scan scheduled \u2014 we'll see the first movement there.",
         },
         {
           direction: "incoming",
-          text: "Day 90 na. 31 na yung GLIS ko. Yung knees ko — I can go up stairs without stopping now. Unbelievable.",
-          time: "✓✓ Read",
+          text: "Day 90 na. 31 na yung GLIS ko. Yung knees ko \u2014 I can go up stairs without stopping now. Unbelievable.",
+          time: "\u2713\u2713 Read",
         },
       ],
     },
@@ -480,25 +480,25 @@ export const patientVoicesContent = {
 export const guaranteeContent = {
   heading: "The Number Moves or the Money Does.",
   paragraph:
-    "Complete 90 days. Follow the protocol. If your GLIS score doesn't show measurable improvement — your supplement cost comes back in full. No forms. No arguments. Cash back to the same account you paid from.",
+    "Complete 90 days. Follow the protocol. If your GLIS score doesn't show measurable improvement \u2014 your supplement cost comes back in full. No forms. No arguments. Cash back to the same account you paid from.",
 };
 
 export const qualificationContent = {
   tag: "Honest About Fit",
   heading: "This is not for everyone.\nWe mean that.",
-  yesTitle: "Good fit ✓",
-  noTitle: "Not a fit ✗",
+  yesTitle: "Good fit \u2713",
+  noTitle: "Not a fit \u2717",
   yesItems: [
-    "Filipino adults 35–60 with fatigue, joint pain, or brain fog their labs call \"normal\"",
+    "Filipino adults 35\u201360 with fatigue, joint pain, or brain fog their labs call \"normal\"",
     "Anyone with a family history of cardiovascular, metabolic, or autoimmune disease",
     "People who have recent bloodwork and want to know what it's actually telling them",
-    "Those who want a physician watching their direction — not just a pill",
+    "Those who want a physician watching their direction \u2014 not just a pill",
   ],
   noItems: [
-    "Anyone expecting symptom relief in the first two weeks — this is a 90-day trajectory protocol",
-    "Those currently on immunosuppressants or biologics — consult your specialist first",
-    "Pregnant or breastfeeding — not evaluated for this group",
-    "Anyone looking for a diagnosis — GLIS is a wellness score, not a clinical test",
+    "Anyone expecting symptom relief in the first two weeks \u2014 this is a 90-day trajectory protocol",
+    "Those currently on immunosuppressants or biologics \u2014 consult your specialist first",
+    "Pregnant or breastfeeding \u2014 not evaluated for this group",
+    "Anyone looking for a diagnosis \u2014 GLIS is a wellness score, not a clinical test",
   ],
 };
 
@@ -525,7 +525,7 @@ export const footerContent = {
     { label: "Contact", href: "#" },
   ] satisfies FooterLink[],
   disclaimerLead:
-    "FDA-PH · CPR FR-4XXXXXXX · Medical Director (advisory): Dr. Shane Animas, MD · PRC Lic. 0098732 · Internal Medicine · General Santos City",
+    "FDA-PH \u00B7 CPR FR-4XXXXXXX \u00B7 Medical Director (advisory): Dr. Shane Animas, MD \u00B7 PRC Lic. 0098732 \u00B7 Internal Medicine \u00B7 General Santos City",
   disclaimer:
-    "GutGuard SynBIOTIC+ is a licensed lifestyle food supplement (FDA-PH CPR FR-4XXXXXXX · LTO FDO-XXXXXXX). It is not intended to diagnose, treat, cure, or prevent any disease. The GLIS (Gut-Lifestyle Inflammation Score) is a composite biological score targeting inflammaging — chronic low-grade systemic inflammation — documented in the GLIS Clinical Methodology v1.3 (April 2026). It is a wellness screening tool, not a clinical diagnostic instrument. The methodology is based on peer-reviewed inflammaging literature; the specific composite has not yet undergone independent peer-reviewed validation (study planned Q3 2026, target publication Philippine Journal of Internal Medicine). Protocol assignment is a supplement recommendation, not a prescription act under RA 9173 or the Medical Act. Research associations are drawn from published peer-reviewed literature and do not constitute product claims. Individual results vary. *Outcome data from internal observational tracking (n=127, Apr 2025–Mar 2026) — not a peer-reviewed clinical trial. Not representative of all users. Outcome data from internal tracking of enrolled completers — not a peer-reviewed clinical trial. GLIS is patient-primary: patients can use it independently with their own offline doctor (the default), or opt in to an optional GutGuard supervising physician. Optional supervising physician review is conducted by enrolled independent licensed physicians; Dr. Shane Animas serves as Medical Director in an advisory and optional supervising capacity per RA 2382. Pediatric exclusion: GLIS is for adults 18 and over. Patient data processed under RA 10173 (Data Privacy Act) — patient consent required before BioScan submission. Patients explicitly acknowledge critical findings and are responsible for clinical follow-up with a qualified doctor. Protocol credit redemptions via vRedeem constitute taxable income under the Philippine NIRC (BIR). Physician participation subject to PMA Code of Ethics. Liability of IG International / GutGuard is limited to the purchase price of the protocol in the 12 months preceding any claim. Always consult your physician before starting any supplement protocol. Compliant with RA 9711, RA 7394, RA 10173, and applicable FDA-PH regulations.",
+    "GutGuard SynBIOTIC+ is a licensed lifestyle food supplement (FDA-PH CPR FR-4XXXXXXX \u00B7 LTO FDO-XXXXXXX). It is not intended to diagnose, treat, cure, or prevent any disease. The GLIS (Gut-Lifestyle Inflammation Score) is a composite biological score targeting inflammaging \u2014 chronic low-grade systemic inflammation \u2014 documented in the GLIS Clinical Methodology v1.3 (April 2026). It is a wellness screening tool, not a clinical diagnostic instrument. The methodology is based on peer-reviewed inflammaging literature; the specific composite has not yet undergone independent peer-reviewed validation (study planned Q3 2026, target publication Philippine Journal of Internal Medicine). Protocol assignment is a supplement recommendation, not a prescription act under RA 9173 or the Medical Act. Research associations are drawn from published peer-reviewed literature and do not constitute product claims. Individual results vary. *Outcome data from internal observational tracking (n=127, Apr 2025\u2013Mar 2026) \u2014 not a peer-reviewed clinical trial. Not representative of all users. Outcome data from internal tracking of enrolled completers \u2014 not a peer-reviewed clinical trial. GLIS is patient-primary: patients can use it independently with their own offline doctor (the default), or opt in to an optional GutGuard supervising physician. Optional supervising physician review is conducted by enrolled independent licensed physicians; Dr. Shane Animas serves as Medical Director in an advisory and optional supervising capacity per RA 2382. Pediatric exclusion: GLIS is for adults 18 and over. Patient data processed under RA 10173 (Data Privacy Act) \u2014 patient consent required before BioScan submission. Patients explicitly acknowledge critical findings and are responsible for clinical follow-up with a qualified doctor. Protocol credit redemptions via vRedeem constitute taxable income under the Philippine NIRC (BIR). Physician participation subject to PMA Code of Ethics. Liability of IG International / GutGuard is limited to the purchase price of the protocol in the 12 months preceding any claim. Always consult your physician before starting any supplement protocol. Compliant with RA 9711, RA 7394, RA 10173, and applicable FDA-PH regulations.",
 };

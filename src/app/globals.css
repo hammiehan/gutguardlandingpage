@@ -176,6 +176,27 @@ canvas {
   padding: 0 clamp(20px, 5vw, 48px);
 }
 
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .7s var(--ease),
+    transform .7s var(--ease);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+.rv.rv-l {
+  transform: translateX(-24px);
+}
+
+.rv.rv-r {
+  transform: translateX(24px);
+}
+
 #hero {
   min-height: 100svh;
   background: var(--bg);

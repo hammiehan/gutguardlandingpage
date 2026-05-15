@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 type RevealDirection = "up" | "left" | "right";
@@ -14,14 +14,14 @@ type RevealProps = {
 
 function getOffset(direction: RevealDirection) {
   if (direction === "left") {
-    return { x: 24, y: 0 };
+    return "rv-l";
   }
 
   if (direction === "right") {
-    return { x: -24, y: 0 };
+    return "rv-r";
   }
 
-  return { x: 0, y: 24 };
+  return "";
 }
 
 export default function Reveal({
@@ -30,26 +30,47 @@ export default function Reveal({
   direction = "up",
   className,
 }: RevealProps) {
-  const prefersReducedMotion = useReducedMotion();
-  const offset = getOffset(direction);
+  const ref = useRef<HTMLDivElement | null>(null);
+  const directionClass = getOffset(direction);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) {
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      element.classList.add("in");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <motion.div
-      className={className}
-      initial={
-        prefersReducedMotion
-          ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, x: offset.x, y: offset.y }
-      }
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: prefersReducedMotion ? 0 : 0.72,
-        delay: prefersReducedMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+    <div
+      ref={ref}
+      className={["rv", directionClass, className].filter(Boolean).join(" ")}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

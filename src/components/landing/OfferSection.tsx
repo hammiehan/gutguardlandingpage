@@ -1,35 +1,58 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "@/components/landing/Reveal";
 import { doctorStripContent, offerCards, offerSectionContent } from "@/lib/landing-data";
 
 function AnimatedCount({ target }: { target: number }) {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
-    const startedAt = performance.now();
-    const duration = 1400;
+    const element = ref.current;
+
+    if (!element) {
+      return;
+    }
+
     let frame = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-    const tick = (now: number) => {
-      const progress = Math.min((now - startedAt) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(target * eased));
+          observer.unobserve(entry.target);
 
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick);
-      }
-    };
+          const startedAt = performance.now();
+          const duration = 1400;
 
-    frame = window.requestAnimationFrame(tick);
+          const tick = (now: number) => {
+            const progress = Math.min((now - startedAt) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(target * eased));
+
+            if (progress < 1) {
+              frame = window.requestAnimationFrame(tick);
+            }
+          };
+
+          frame = window.requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(element);
 
     return () => {
       window.cancelAnimationFrame(frame);
+      observer.disconnect();
     };
   }, [target]);
 
-  return <>{count}</>;
+  return <span ref={ref}>{count}</span>;
 }
 
 function ScanIcon() {
@@ -101,7 +124,7 @@ export default function OfferSection() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px" }}>
               {offerSectionContent.includes.map((item) => (
                 <span key={item} style={{ fontSize: 15, color: "rgba(255,255,255,.72)", display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ color: "var(--grn)", fontWeight: 700 }}>✓</span>
+                  <span style={{ color: "var(--grn)", fontWeight: 700 }}>{"\u2713"}</span>
                   {item}
                 </span>
               ))}
@@ -113,17 +136,17 @@ export default function OfferSection() {
           <div style={{ marginTop: 28 }}>
             <div className="doc-strip">
               <div className="doc-top">
-                <div className="doc-avatar">👨‍⚕️</div>
+                <div className="doc-avatar">{"\u{1F468}\u200D\u2695\uFE0F"}</div>
                 <div>
                   <div className="doc-name">{doctorStripContent.name}</div>
                   <div className="doc-title">{doctorStripContent.title}</div>
                 </div>
               </div>
-              <div className="doc-quote">“{doctorStripContent.quote}”</div>
+              <div className="doc-quote">{"\u201C"}{doctorStripContent.quote}{"\u201D"}</div>
               <div className="doc-stats">
                 {doctorStripContent.stats.map((stat) => (
                   <div key={stat.label} className="ds">
-                    <div className="ds-n" style={{ color: stat.color }}>
+                    <div className="ds-n" style={{ color: stat.color, whiteSpace: "pre-line" }}>
                       {stat.count ? <AnimatedCount target={stat.count} /> : stat.value}
                     </div>
                     <div className="ds-l">{stat.label}</div>

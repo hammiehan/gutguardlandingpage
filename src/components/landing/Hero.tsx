@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import Reveal from "@/components/landing/Reveal";
 import { heroContent, heroRingStates, type HeroChip, type HeroState } from "@/lib/landing-data";
 
@@ -36,7 +37,10 @@ function TrustIcon({ kind }: { kind: "shield" | "user" }) {
 export default function Hero() {
   const [state, setState] = useState<HeroState>("before");
   const [displayScore, setDisplayScore] = useState(heroRingStates.before.score);
-  const scoreRef = useRef(displayScore);
+  const [ringDegrees, setRingDegrees] = useState(0);
+  const scoreRef = useRef(heroRingStates.before.score);
+  const initializedRef = useRef(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const activeState = useMemo(() => heroRingStates[state], [state]);
 
@@ -45,11 +49,40 @@ export default function Hero() {
   }, [displayScore]);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      initializedRef.current = true;
+      setRingDegrees(heroRingStates.before.progressDegrees);
+      setDisplayScore(heroRingStates.before.score);
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      initializedRef.current = true;
+      setRingDegrees(heroRingStates.before.progressDegrees);
+    }, 700);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    if (!initializedRef.current) {
+      return;
+    }
+
+    setRingDegrees(activeState.progressDegrees);
+
     const start = scoreRef.current;
     const target = activeState.score;
+    const duration = prefersReducedMotion ? 0 : 900;
     const startedAt = performance.now();
-    const duration = 1600;
     let frame = 0;
+
+    if (duration === 0) {
+      setDisplayScore(target);
+      return;
+    }
 
     const tick = (now: number) => {
       const progress = Math.min((now - startedAt) / duration, 1);
@@ -66,7 +99,23 @@ export default function Hero() {
     return () => {
       window.cancelAnimationFrame(frame);
     };
-  }, [activeState.score]);
+  }, [activeState.progressDegrees, activeState.score, prefersReducedMotion]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    let cycleState: HeroState = "before";
+    const interval = window.setInterval(() => {
+      cycleState = cycleState === "before" ? "after" : "before";
+      setState(cycleState);
+    }, 6000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [prefersReducedMotion]);
 
   return (
     <section id="hero">
@@ -153,10 +202,7 @@ export default function Hero() {
                 <div className="ring-wrap hero-ring">
                   <div className="ring-glow" style={{ background: activeState.glow }} />
                   <div className="ring-trk" />
-                  <div
-                    className="ring-fill"
-                    style={{ ["--ra" as string]: `${activeState.progressDegrees}deg` }}
-                  />
+                  <div className="ring-fill" style={{ ["--ra" as string]: `${ringDegrees}deg` }} />
                   <div className="ring-ctr">
                     <span className="ring-score" style={{ color: activeState.color }}>
                       {displayScore}

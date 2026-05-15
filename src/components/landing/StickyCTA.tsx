@@ -24,10 +24,12 @@ export default function StickyCTA() {
     <div id="sticky" className={isVisible ? "on" : undefined}>
       <div className="sk-l">
         <div className="sk-title">GutGuard Protocol</div>
-        <div className="sk-sub">Trial ₱1,299 · Grow ₱13,000 · Physician-reviewed</div>
+        <div className="sk-sub">
+          Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
+        </div>
       </div>
       <a href="#offer" className="sk-btn">
-        Start My BioScan →
+        Start My BioScan {"\u2192"}
       </a>
     </div>
   );
