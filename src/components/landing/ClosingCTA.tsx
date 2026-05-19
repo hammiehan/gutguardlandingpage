@@ -1,3 +1,4 @@
+import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
 import Reveal from "@/components/landing/Reveal";
 import { closingCtaContent } from "@/lib/landing-data";
 
@@ -21,9 +22,14 @@ export default function ClosingCTA() {
         </Reveal>
         <Reveal delay={0.16}>
           <div className="close-cta-wrap">
-            <a href="gutguard-patient-portal-v33.html" className="btn-primary" style={{ fontSize: 18, padding: "20px 40px" }}>
-              Start My BioScan →
-            </a>
+            <TikTokTrackedLink
+              href="gutguard-patient-portal-v33.html"
+              className="btn-primary"
+              style={{ fontSize: 18, padding: "20px 40px" }}
+              eventPayload={{ content_name: "closing_cta" }}
+            >
+              Start My BioScan {"\u2192"}
+            </TikTokTrackedLink>
             <div className="close-proof">
               {closingCtaContent.proofItems.map((item) => (
                 <span key={item} className="close-proof-item">

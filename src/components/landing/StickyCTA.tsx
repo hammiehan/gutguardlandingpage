@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,9 +29,9 @@ export default function StickyCTA() {
           Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
         </div>
       </div>
-      <a href="gutguard-patient-portal-v33.html" className="sk-btn">
+      <TikTokTrackedLink href="gutguard-patient-portal-v33.html" className="sk-btn" eventPayload={{ content_name: "sticky_cta" }}>
         Start My BioScan {"\u2192"}
-      </a>
+      </TikTokTrackedLink>
     </div>
   );
 }

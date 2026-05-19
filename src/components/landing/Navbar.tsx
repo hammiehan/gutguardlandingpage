@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
 
 export default function Navbar() {
   const [isStuck, setIsStuck] = useState(false);
@@ -42,9 +43,9 @@ export default function Navbar() {
       <a href="gutguard-physician-acquisition.html" className="nav-dr">
         Are you a physician?
       </a>
-      <a href="#offer" className="nav-cta">
-        Start My BioScan →
-      </a>
+      <TikTokTrackedLink href="#offer" className="nav-cta" eventPayload={{ content_name: "navbar_cta" }}>
+        Start My BioScan {"\u2192"}
+      </TikTokTrackedLink>
     </nav>
   );
 }

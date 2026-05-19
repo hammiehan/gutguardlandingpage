@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
 import Reveal from "@/components/landing/Reveal";
 import { doctorStripContent, offerCards, offerSectionContent } from "@/lib/landing-data";
 
@@ -134,9 +135,13 @@ export default function OfferSection() {
                     {card.review}
                   </div>
                 </div>
-                <a href={card.href} className="proto-cta">
+                <TikTokTrackedLink
+                  href={card.href}
+                  className="proto-cta"
+                  eventPayload={{ content_name: card.name, value: card.total }}
+                >
                   {card.ctaLabel}
-                </a>
+                </TikTokTrackedLink>
               </div>
             </Reveal>
           ))}
