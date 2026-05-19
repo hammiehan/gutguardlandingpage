@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 type RevealDirection = "up" | "left" | "right";
@@ -31,6 +31,8 @@ export default function Reveal({
   className,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const directionClass = getOffset(direction);
 
   useEffect(() => {
@@ -41,15 +43,31 @@ export default function Reveal({
     }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      element.classList.add("in");
+      setIsInView(true);
       return;
     }
+
+    const rect = element.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const isInitiallyVisible = rect.top < viewportHeight - 32 && rect.bottom > 0;
+
+    if (isInitiallyVisible) {
+      setIsInView(true);
+      return;
+    }
+
+    if (typeof window.IntersectionObserver === "undefined") {
+      setIsInView(true);
+      return;
+    }
+
+    setIsReady(true);
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("in");
+            setIsInView(true);
             observer.unobserve(entry.target);
           }
         });
@@ -67,7 +85,7 @@ export default function Reveal({
   return (
     <div
       ref={ref}
-      className={["rv", directionClass, className].filter(Boolean).join(" ")}
+      className={["rv", directionClass, isReady ? "rv-ready" : "", isInView ? "in" : "", className].filter(Boolean).join(" ")}
       style={{ transitionDelay: `${delay}s` }}
     >
       {children}

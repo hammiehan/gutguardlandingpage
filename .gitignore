@@ -1,6 +1,8 @@
 node_modules/
 .next/
 .next-build/
+.env.local
+.env.*.local
 dev-server.log
 tsconfig.tsbuildinfo
 npm-debug.log*
