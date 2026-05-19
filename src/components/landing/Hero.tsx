@@ -142,6 +142,7 @@ export default function Hero() {
                       {line}
                     </span>
                   ))}
+                  {" "}
                   <em>
                     {heroContent.titleAccent.split("\n").map((line, index) => (
                       <span key={line}>

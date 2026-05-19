@@ -61,7 +61,7 @@ export default function ProofStrip() {
       <div className="mx">
         <div className="proof-row">
           {proofStats.map((stat, index) => (
-            <Reveal key={stat.labelLines.join("-")} delay={index * 0.08}>
+            <Reveal key={stat.labelLines.join("-")} delay={index * 0.08} className="proof-item">
               <div className="proof-stat">
                 <div className="proof-n" style={{ color: stat.color }}>
                   {index === 0 ? <AnimatedCount target={127} /> : stat.value}

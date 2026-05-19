@@ -28,7 +28,7 @@ export default function StickyCTA() {
           Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
         </div>
       </div>
-      <a href="#offer" className="sk-btn">
+      <a href="gutguard-patient-portal-v33.html" className="sk-btn">
         Start My BioScan {"\u2192"}
       </a>
     </div>

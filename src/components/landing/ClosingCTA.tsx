@@ -10,7 +10,10 @@ export default function ClosingCTA() {
           <h2 className="close-h">
             {closingCtaContent.headingLead}
             <br />
-            <em>{closingCtaContent.headingAccent}</em>
+            <span className="close-h-accent-line">
+              <span className="close-h-accent">{closingCtaContent.headingAccent}</span>{" "}
+              <span>{closingCtaContent.headingSuffix}</span>
+            </span>
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
@@ -18,7 +21,7 @@ export default function ClosingCTA() {
         </Reveal>
         <Reveal delay={0.16}>
           <div className="close-cta-wrap">
-            <a href="#offer" className="btn-primary" style={{ fontSize: 18, padding: "20px 40px" }}>
+            <a href="gutguard-patient-portal-v33.html" className="btn-primary" style={{ fontSize: 18, padding: "20px 40px" }}>
               Start My BioScan →
             </a>
             <div className="close-proof">

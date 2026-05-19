@@ -63,6 +63,26 @@ function ScanIcon() {
   );
 }
 
+function DoctorStatValue({ stat }: { stat: (typeof doctorStripContent.stats)[number] }) {
+  if (stat.count) {
+    return <AnimatedCount target={stat.count} />;
+  }
+
+  const [primary, secondary] = stat.value.split("\n");
+
+  if (!secondary) {
+    return stat.value;
+  }
+
+  return (
+    <>
+      {primary}
+      <br />
+      <span style={{ fontSize: 13 }}>{secondary}</span>
+    </>
+  );
+}
+
 export default function OfferSection() {
   return (
     <section id="offer">
@@ -96,17 +116,23 @@ export default function OfferSection() {
 
         <div className="proto-grid">
           {offerCards.map((card, index) => (
-            <Reveal key={card.name} delay={0.08 + index * 0.08}>
+            <Reveal key={card.name} delay={0.08 + index * 0.08} className="proto-item">
               <div className={`proto-card${card.featured ? " recommended" : ""}`}>
                 {card.featured ? <div className="proto-rec-badge">Most chosen</div> : null}
-                <div className="proto-name">{card.name}</div>
-                <div className="proto-caps">{card.capsuleSummary}</div>
-                <div className="proto-cap-price">{card.pricePerCapsule}</div>
-                <div className="proto-cap-label">per capsule</div>
-                <div className="proto-price">{card.total}</div>
-                <div className="proto-scans">
-                  <ScanIcon />
-                  {card.review}
+                <div className="proto-card-body">
+                  <div className="proto-card-head">
+                    <div className="proto-name">{card.name}</div>
+                    <div className="proto-caps">{card.capsuleSummary}</div>
+                  </div>
+                  <div className="proto-card-price">
+                    <div className="proto-cap-price">{card.pricePerCapsule}</div>
+                    <div className="proto-cap-label">per capsule</div>
+                    <div className="proto-price">{card.total}</div>
+                  </div>
+                  <div className="proto-scans">
+                    <ScanIcon />
+                    {card.review}
+                  </div>
                 </div>
                 <a href={card.href} className="proto-cta">
                   {card.ctaLabel}
@@ -146,8 +172,8 @@ export default function OfferSection() {
               <div className="doc-stats">
                 {doctorStripContent.stats.map((stat) => (
                   <div key={stat.label} className="ds">
-                    <div className="ds-n" style={{ color: stat.color, whiteSpace: "pre-line" }}>
-                      {stat.count ? <AnimatedCount target={stat.count} /> : stat.value}
+                    <div className="ds-n" style={{ color: stat.color }}>
+                      <DoctorStatValue stat={stat} />
                     </div>
                     <div className="ds-l">{stat.label}</div>
                   </div>

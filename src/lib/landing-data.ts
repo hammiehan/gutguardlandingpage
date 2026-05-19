@@ -39,8 +39,10 @@ export type HeroRingState = {
 export type StatItem = {
   value: string;
   suffix: string;
+  label?: string;
   labelLines: string[];
   color: string;
+  glow?: string;
 };
 
 export type DiseaseCard = {
@@ -173,32 +175,40 @@ export const heroRingStates: Record<HeroState, HeroRingState> = {
   },
 };
 
-export const proofStats: StatItem[] = [
+export const proofStats = [
   {
     value: "127",
     suffix: "",
+    label: "Patients enrolled* & tracked",
     labelLines: ["Patients enrolled*", "& tracked"],
     color: "var(--grn)",
+    glow: "rgba(92,184,130,.18)",
   },
   {
     value: "28",
     suffix: "pts",
+    label: "Avg GLIS drop* per 90-day cycle",
     labelLines: ["Avg GLIS drop*", "per 90-day cycle"],
     color: "var(--bl)",
+    glow: "rgba(59,130,200,.18)",
   },
   {
     value: "48",
     suffix: "hrs",
+    label: "Physician review turnaround",
     labelLines: ["Physician review", "turnaround"],
     color: "var(--gld)",
+    glow: "rgba(245,196,88,.18)",
   },
   {
     value: "3",
     suffix: "tx",
+    label: "Physician re-scans over 90 days",
     labelLines: ["Physician re-scans", "over 90 days"],
     color: "var(--ter)",
+    glow: "rgba(61,207,190,.18)",
   },
-];
+] satisfies StatItem[];
 
 export const whyInflammationContent = {
   tag: "Published Research",
@@ -504,7 +514,8 @@ export const qualificationContent = {
 
 export const closingCtaContent = {
   headingLead: "Somewhere between your last clean blood test and",
-  headingAccent: "\"We need to talk\" is a window.",
+  headingAccent: "\"We need to talk\"",
+  headingSuffix: "is a window.",
   paragraph:
     "Most people don't know the window exists. Most find out it closed from a specialist's office. You're finding out now.",
   proofItems: [
