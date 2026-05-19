@@ -360,7 +360,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1130",
     total: "\u20B11,299 total \u00B7 10 caps",
     review: "1 BioScan review included",
-    href: "gutguard-patient-portal-v33.html",
+    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
     ctaLabel: "Start Trial \u2192",
   },
   {
@@ -369,7 +369,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1115",
     total: "\u20B14,900 total \u00B7 40 caps",
     review: "1 BioScan review included",
-    href: "gutguard-patient-portal-v33.html",
+    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
     ctaLabel: "Start Protocol \u2192",
   },
   {
@@ -378,7 +378,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1103",
     total: "\u20B113,000 total \u00B7 120 caps",
     review: "3 BioScan reviews \u00B7 Day 0, 45, 90",
-    href: "gutguard-patient-portal-v33.html",
+    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
     ctaLabel: "Start Grow \u2192",
     featured: true,
   },
@@ -388,7 +388,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B187",
     total: "\u20B139,000 total \u00B7 400 caps",
     review: "3 BioScan reviews \u00B7 full-cycle supply",
-    href: "gutguard-patient-portal-v33.html",
+    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
     ctaLabel: "Start Power \u2192",
   },
 ];

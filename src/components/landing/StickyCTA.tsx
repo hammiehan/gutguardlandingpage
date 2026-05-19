@@ -1,10 +1,25 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
-import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const target = document.getElementById("offer");
+
+    if (!target) {
+      return;
+    }
+
+    const top = target.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top, behavior: "smooth" });
+    window.history.replaceState(null, "", "#offer");
+    window.ttq?.track("Contact", { content_name: "sticky_cta" });
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,9 +44,9 @@ export default function StickyCTA() {
           Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
         </div>
       </div>
-      <TikTokTrackedLink href="gutguard-patient-portal-v33.html" className="sk-btn" eventPayload={{ content_name: "sticky_cta" }}>
+      <a href="#offer" className="sk-btn" onClick={handleClick}>
         Start My BioScan {"\u2192"}
-      </TikTokTrackedLink>
+      </a>
     </div>
   );
 }

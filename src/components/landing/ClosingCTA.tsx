@@ -23,10 +23,10 @@ export default function ClosingCTA() {
         <Reveal delay={0.16}>
           <div className="close-cta-wrap">
             <TikTokTrackedLink
-              href="gutguard-patient-portal-v33.html"
+              href="#offer"
               className="btn-primary"
               style={{ fontSize: 18, padding: "20px 40px" }}
-              eventPayload={{ content_name: "closing_cta" }}
+              eventPayload={{ content_name: "navbar_cta" }}
             >
               Start My BioScan {"\u2192"}
             </TikTokTrackedLink>

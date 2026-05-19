@@ -20,6 +20,7 @@ export default function TikTokTrackedLink({
   eventName = TIKTOK_CONTACT_EVENT,
   eventPayload,
   onClick,
+  href,
   ...props
 }: TikTokTrackedLinkProps) {
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -30,7 +31,20 @@ export default function TikTokTrackedLink({
     }
 
     window.ttq?.track(eventName, eventPayload);
+
+    if (typeof href === "string" && href.startsWith("#") && href.length > 1) {
+      event.preventDefault();
+
+      const target = document.querySelector<HTMLElement>(href);
+
+      if (!target) {
+        return;
+      }
+
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", href);
+    }
   };
 
-  return <a {...props} onClick={handleClick} />;
+  return <a {...props} href={href} onClick={handleClick} />;
 }

@@ -138,6 +138,8 @@ export default function OfferSection() {
                 <TikTokTrackedLink
                   href={card.href}
                   className="proto-cta"
+                  target="_blank"
+                  rel="noreferrer noopener"
                   eventPayload={{ content_name: card.name, value: card.total }}
                 >
                   {card.ctaLabel}
