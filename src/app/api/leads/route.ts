@@ -34,6 +34,10 @@ type LeadPayload = {
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
+function isSupabaseOpaqueKey(key: string) {
+  return key.startsWith("sb_publishable_") || key.startsWith("sb_secret_");
+}
+
 function getIpAddress(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
   if (!forwardedFor) {
@@ -139,14 +143,21 @@ export async function POST(request: NextRequest) {
 
   const leadRecord = buildLeadRecord(request, payload);
 
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    apikey: SUPABASE_SERVICE_ROLE_KEY,
+    Prefer: "return=representation",
+  };
+
+  // Supabase's new publishable/secret keys are not JWTs and should not be sent
+  // as Bearer tokens to PostgREST. Legacy service_role JWTs still can be.
+  if (!isSupabaseOpaqueKey(SUPABASE_SERVICE_ROLE_KEY)) {
+    headers.Authorization = `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`;
+  }
+
   const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-      Prefer: "return=representation",
-    },
+    headers,
     body: JSON.stringify(leadRecord),
     cache: "no-store",
   });
