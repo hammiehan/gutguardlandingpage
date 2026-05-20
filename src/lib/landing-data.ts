@@ -360,7 +360,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1130",
     total: "\u20B11,299 total \u00B7 10 caps",
     review: "1 BioScan review included",
-    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
+    href: "https://www.tiktok.com/view/product/1733428486628607712?encode_params=MIIBpgQMvhe1VFOEZXWQYUAyBIIBgi8Th0rwfEPFLfb25ygAoL-WhEJFNEsQhPWSx34BZUYu6QXY9Vo2dh-HnR0rZ1YedGyX8y4KVK9yMstq_K4h8n4yYp7VErBj20PHEmmgrmwDsoFgh202UI5QZrm-pWJGm0fhh42idaAeP2gghVgFwDPPLUNwm6W104a5nufUg4fRrl6TcxujIkPVVDKthnQHAu0fjr0pRNLQcH4kHGy1gJiotQevZrul7Ova7EVSoO4ZqnmMbxFPXtIEkUOGa1S_XHW_dr-JeGYdNBnd8tV_r61frg-D-rTur-clIIw4qduUFoXIfBmdfjH8TuMTXYmBb3UzPz8wiDFmjc-pc2OjC9mTnNjzamDlVuiKgfYN2NRhgxFH2xTEfpNGm0xYrv7eXNIThgEcEsiDCPK9JpdHqqNpeRsJcz7BdAwodVKNBOAiygZvwN0jnP8c1h3Frpr2Usy7V6EanM9N_E8CcdlUG-uQWLqxjs8WqBQ7wQC__Nadl2VYloDqNqCuFLduga1rRwmXBBBfAw-nyM-mZ55YrE7nZqlh&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Trial \u2192",
   },
   {
@@ -369,7 +369,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1115",
     total: "\u20B14,900 total \u00B7 40 caps",
     review: "1 BioScan review included",
-    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
+    href: "https://www.tiktok.com/view/product/1733428486628607712?encode_params=MIIBpgQMvhe1VFOEZXWQYUAyBIIBgi8Th0rwfEPFLfb25ygAoL-WhEJFNEsQhPWSx34BZUYu6QXY9Vo2dh-HnR0rZ1YedGyX8y4KVK9yMstq_K4h8n4yYp7VErBj20PHEmmgrmwDsoFgh202UI5QZrm-pWJGm0fhh42idaAeP2gghVgFwDPPLUNwm6W104a5nufUg4fRrl6TcxujIkPVVDKthnQHAu0fjr0pRNLQcH4kHGy1gJiotQevZrul7Ova7EVSoO4ZqnmMbxFPXtIEkUOGa1S_XHW_dr-JeGYdNBnd8tV_r61frg-D-rTur-clIIw4qduUFoXIfBmdfjH8TuMTXYmBb3UzPz8wiDFmjc-pc2OjC9mTnNjzamDlVuiKgfYN2NRhgxFH2xTEfpNGm0xYrv7eXNIThgEcEsiDCPK9JpdHqqNpeRsJcz7BdAwodVKNBOAiygZvwN0jnP8c1h3Frpr2Usy7V6EanM9N_E8CcdlUG-uQWLqxjs8WqBQ7wQC__Nadl2VYloDqNqCuFLduga1rRwmXBBBfAw-nyM-mZ55YrE7nZqlh&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Protocol \u2192",
   },
   {
@@ -378,7 +378,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1103",
     total: "\u20B113,000 total \u00B7 120 caps",
     review: "3 BioScan reviews \u00B7 Day 0, 45, 90",
-    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
+    href: "https://www.tiktok.com/view/product/1733428303279195872?encode_params=MIIBpgQM6dNrbdkOTvBwogfYBIIBgu8q3OELTRGL5lIVIi-jKFlbzK5m0uHR0m2PbWXoa_Hg_YFXs4PbWQUBSIHWVj2VtzyYoFg8wDqdj9okLKuJ7WsnnHy_z8K2iQk98eKAvP05D8Bfa6LBEDhWoyurHqc50v7ia-lgRWgWpYa1tibD67EdhCzQT7khHjkIYcKluZQqa5vyh1EF_788Hf1Op0oOrNpZAdgnY_58G7AKoeYh_UICgtps801m4mUPkvu8b8tOFVcpb4n1Ka2ylxvGzBgMFM0H8LcgjY99dqgsZVxWfeJDrzJrPbfo_hqRRN0PIXk_JX9te1aARmMYQHm5KHsSEsT94OGUo0RFFfnF5oA9LIoxXAV3rjAgS8qf4hX25wrE-0fR_9SiT2db7CpGmJqB5dBtfVgNac8tCrxeQRgrE7G8OIWxrTQQQ-aGsn0GUjHU_EcXDLI0iWkOhCIXIzKaeSxDm_P95ZONqZIilNd7vxSJk4k7xWZW2Sx0A_XYZKH-BqXDoQ5Hre1dH5jT1gV2SCGzBBABtY_mcmiwwFM0CyPkYs4U&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Grow \u2192",
     featured: true,
   },
@@ -388,7 +388,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B187",
     total: "\u20B139,000 total \u00B7 400 caps",
     review: "3 BioScan reviews \u00B7 full-cycle supply",
-    href: "https://shop.tiktok.com/ph/pdp/sprout-gutguard-synbiotic-tri-biotic-80b-cfu-for-digestive-immune-support/1733428303279195872",
+    href: "https://www.tiktok.com/view/product/1733428303279195872?encode_params=MIIBpgQM6dNrbdkOTvBwogfYBIIBgu8q3OELTRGL5lIVIi-jKFlbzK5m0uHR0m2PbWXoa_Hg_YFXs4PbWQUBSIHWVj2VtzyYoFg8wDqdj9okLKuJ7WsnnHy_z8K2iQk98eKAvP05D8Bfa6LBEDhWoyurHqc50v7ia-lgRWgWpYa1tibD67EdhCzQT7khHjkIYcKluZQqa5vyh1EF_788Hf1Op0oOrNpZAdgnY_58G7AKoeYh_UICgtps801m4mUPkvu8b8tOFVcpb4n1Ka2ylxvGzBgMFM0H8LcgjY99dqgsZVxWfeJDrzJrPbfo_hqRRN0PIXk_JX9te1aARmMYQHm5KHsSEsT94OGUo0RFFfnF5oA9LIoxXAV3rjAgS8qf4hX25wrE-0fR_9SiT2db7CpGmJqB5dBtfVgNac8tCrxeQRgrE7G8OIWxrTQQQ-aGsn0GUjHU_EcXDLI0iWkOhCIXIzKaeSxDm_P95ZONqZIilNd7vxSJk4k7xWZW2Sx0A_XYZKH-BqXDoQ5Hre1dH5jT1gV2SCGzBBABtY_mcmiwwFM0CyPkYs4U&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Power \u2192",
   },
 ];
