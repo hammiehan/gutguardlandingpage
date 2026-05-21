@@ -366,7 +366,7 @@ export const offerCards: OfferCard[] = [
   {
     name: "Start",
     capsuleSummary: "40 capsules \u00B7 4 bottles \u00B7 1 BioScan",
-    pricePerCapsule: "\u20B1115",
+    pricePerCapsule: "\u20B1125",
     total: "\u20B14,900 total \u00B7 40 caps",
     review: "1 BioScan review included",
     href: "https://www.tiktok.com/view/product/1735690226633574112?encode_params=MIIBpgQMShJ5kwAYAJ_1hrMzBIIBgie1ranvRK2TLkQQ9Nk60h2YbvRh1_njfRYNoS23kBtdI9QHFjQQ0vKP9Tnojl1k4KsECEA8TOajc5kR9eglEXMxaKblEngsd8hzuujLSDogK-2Alvr23JrdF34bFVME6SuD3_gG-Y9xETXp0f_gA2ypWUDZZO278IHybbuWMXT9FK2mKFORiv2cTxL2bCRveAANEnFd1EmPExYiQ368MYhP2sOGHjgE9PuhAiKtOLnDfixRi9_1E6O9C1fXclci8GxhrT4kMC81YvqcGqaSWKN4LvluG1wVU-CxU5Dq2g_JOKaGfF_D5k0OtkWP8ChyGrbhpAT6ViKITEfvxSzjU7s6TgyJRaF5S3W34iMMxDiIzCF4-wpZKMIHAChlqm-9m-YDsRLTUZczfBY2YjiD-wYn4yrStp_mj_V5BOhjdcYs3NgBfpdHpL68dp3XoqrvR-yP01TLq8k-oVthiLglYQnDH7-qcDR1kMpVyuoYmMeLzakhKSkKMqpPswEsnJK2j-VaBBDFoel9LTx2BTcUN32RYIbO&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
@@ -375,7 +375,7 @@ export const offerCards: OfferCard[] = [
   {
     name: "Grow",
     capsuleSummary: "120 capsules \u00B7 12 bottles \u00B7 3 BioScans",
-    pricePerCapsule: "\u20B1103",
+    pricePerCapsule: "\u20B1117",
     total: "\u20B113,000 total \u00B7 120 caps",
     review: "3 BioScan reviews \u00B7 Day 0, 45, 90",
     href: "https://www.tiktok.com/view/product/1735690692352444128?encode_params=MIIBpgQM6gRwTX7tnU3CMwc5BIIBgqb9PASRMlbwByBFx8sG8dBw2qI4JtUHzC4v27UvKNIIt5hcX29oYhj9WXDDLoVLEzJymOZqqdf-jBqyrwpA44__jNCsdwbG5fwnwkn9lZuJLlC6QHWG20-g-K1vqzdi3tIlj-0joow17mXtKIcbCf-8j-zXU3m6oSwLYmTmDysDgMTCDoHLgRjwGpQSEDb2glCH8ymE2UGcXlV1Z9NHoMc5zwF-aVJ32PMNbJPRIsijOg6RjWCLcm6jIQhSVB2M28wllckPQAkdIjQti-c1tpUJLR2h-aoJur0OUfyQtWm6imnGIgPSMwrc_OEYVd9tMrCWmHSD9577s3ZBYQd6zGUznG0r73SfPPWK2gsHAg8NKtbGPtQMgIpRBN-XvIp7SyJgmtLlNQuyFZA-gmtsWIY3EoabtMFFLSDy3nTxF165C6lDAd3uUipa3RydLuyc0RUV8B5NsD1rRZC4jpGRyVtyvmf7T5II96hzuLX4FVixJaJY-Xf9JLlqECR-nyAPY3SKBBDdRBJcB0L-R7luyxaDP-LB&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
@@ -385,7 +385,7 @@ export const offerCards: OfferCard[] = [
   {
     name: "Power",
     capsuleSummary: "400 capsules \u00B7 40 bottles \u00B7 3 BioScans",
-    pricePerCapsule: "\u20B187",
+    pricePerCapsule: "\u20B1100",
     total: "\u20B139,000 total \u00B7 400 caps",
     review: "3 BioScan reviews \u00B7 full-cycle supply",
     href: "https://www.tiktok.com/view/product/1735691058658576096?encode_params=MIIBpgQMrB_SQROzosUZKsuhBIIBgsyscgTJ0mPqIxhoFlw8UMkKGz1y6UVkfFJ3w0SwJWS060qNslbIkTMmYOV6RclFyisE1hhz7v6_yuRt-s__tTXYjEdpNdkMDuO2Xy0zoM2iFGcgk-KJDT49tK6xCNh6csDFn0TDgXe8LmZ4epmeus-Olo_aMA2Tul56BPGTNUoKBKSKH1CTDVQcjB9lg4_NDH6vhSb2C-WrIka66iPxhD8OpSWdn8oZqPAUJguDBSqokgELM2tcdcxtxDLtzQGih_qKOyNDNXPYPsuJn67UxIioJfrir7kpUDyezaW8RkOHDCkTyy1luQXs69B3xTkJEvQCUY8dr-7TheCudPJsF7E4BOEVg1n23-UuvQ4Rftb_S0fyPhnooDE7OAPsRZDtAx5WSigeSEwqxt1FEwy5_CtkT72nhDKnF-HxDchgG7SY2vwgQY--pYvmzI8QcRnjVVC-SOmVzM4axlhCnAnzAKKMqPmBjGwZmr6GRnVDgWrt36krNq125pvPp2G-8F85lrPuBBBdQjsJZ1xOR-oq46mDXRsR&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
