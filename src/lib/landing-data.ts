@@ -360,7 +360,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1130",
     total: "\u20B11,299 total \u00B7 10 caps",
     review: "1 BioScan review included",
-    href: "https://www.tiktok.com/view/product/1733428486628607712?encode_params=MIIBpgQMvhe1VFOEZXWQYUAyBIIBgi8Th0rwfEPFLfb25ygAoL-WhEJFNEsQhPWSx34BZUYu6QXY9Vo2dh-HnR0rZ1YedGyX8y4KVK9yMstq_K4h8n4yYp7VErBj20PHEmmgrmwDsoFgh202UI5QZrm-pWJGm0fhh42idaAeP2gghVgFwDPPLUNwm6W104a5nufUg4fRrl6TcxujIkPVVDKthnQHAu0fjr0pRNLQcH4kHGy1gJiotQevZrul7Ova7EVSoO4ZqnmMbxFPXtIEkUOGa1S_XHW_dr-JeGYdNBnd8tV_r61frg-D-rTur-clIIw4qduUFoXIfBmdfjH8TuMTXYmBb3UzPz8wiDFmjc-pc2OjC9mTnNjzamDlVuiKgfYN2NRhgxFH2xTEfpNGm0xYrv7eXNIThgEcEsiDCPK9JpdHqqNpeRsJcz7BdAwodVKNBOAiygZvwN0jnP8c1h3Frpr2Usy7V6EanM9N_E8CcdlUG-uQWLqxjs8WqBQ7wQC__Nadl2VYloDqNqCuFLduga1rRwmXBBBfAw-nyM-mZ55YrE7nZqlh&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
+    href: "https://www.tiktok.com/view/product/1733428486628607712?encode_params=MIIBpgQMh240QSbo4l4E0UZUBIIBggPdWycRJ-lMiOsgDL_rzWS2MwHb7CyDSDNcDm8-Gy8r0a0gOrDnBNq4DhKy0RI3jLq-cMBK_pcUWJ9TSa_DlSDITVwOQb5CVGNfcE0oTbjT9QUux2QCDLJjkprkxRPIga20g6RH3LqWHJMruUGjHmn_ICgjdQ9tyWrJQ3lpnCW7dqmEKxEx_H1HTl1rPYwjM-9Kch8uMpWHfa6UOhYta_dp3XoOwhaqqJsjGejOOirkCqJEIS5de4xdsAQLBAF0jMXRdKSEwJv3PbVGvpoMMjJs_--3Ce-Vm-uJm_1weugYpOwd4RfbUdAgZgWI_kW4OZTw-8bE_ZpH0_K-1VcZj_-hi4ZMX74NyD1oz1nvqo9XKdznq37WNPYca0MQ6dSi_ODSNxyDakrDAM5mnZsXKFa7QQAinLx170Ra5wpN85YZ-ewSIonNzx1lDqWbno3UbdwRArVpmYGqKwP9KG94qajUF7xKIMRrhxgwQ8ho69jGeLk959xsVqlfGXldwDQLcBsqBBBT_X6avmo-QyguJy1232VI&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Trial \u2192",
   },
   {
@@ -369,7 +369,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1115",
     total: "\u20B14,900 total \u00B7 40 caps",
     review: "1 BioScan review included",
-    href: "https://www.tiktok.com/view/product/1733428486628607712?encode_params=MIIBpgQMvhe1VFOEZXWQYUAyBIIBgi8Th0rwfEPFLfb25ygAoL-WhEJFNEsQhPWSx34BZUYu6QXY9Vo2dh-HnR0rZ1YedGyX8y4KVK9yMstq_K4h8n4yYp7VErBj20PHEmmgrmwDsoFgh202UI5QZrm-pWJGm0fhh42idaAeP2gghVgFwDPPLUNwm6W104a5nufUg4fRrl6TcxujIkPVVDKthnQHAu0fjr0pRNLQcH4kHGy1gJiotQevZrul7Ova7EVSoO4ZqnmMbxFPXtIEkUOGa1S_XHW_dr-JeGYdNBnd8tV_r61frg-D-rTur-clIIw4qduUFoXIfBmdfjH8TuMTXYmBb3UzPz8wiDFmjc-pc2OjC9mTnNjzamDlVuiKgfYN2NRhgxFH2xTEfpNGm0xYrv7eXNIThgEcEsiDCPK9JpdHqqNpeRsJcz7BdAwodVKNBOAiygZvwN0jnP8c1h3Frpr2Usy7V6EanM9N_E8CcdlUG-uQWLqxjs8WqBQ7wQC__Nadl2VYloDqNqCuFLduga1rRwmXBBBfAw-nyM-mZ55YrE7nZqlh&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
+    href: "https://www.tiktok.com/view/product/1735690226633574112?encode_params=MIIBpgQMShJ5kwAYAJ_1hrMzBIIBgie1ranvRK2TLkQQ9Nk60h2YbvRh1_njfRYNoS23kBtdI9QHFjQQ0vKP9Tnojl1k4KsECEA8TOajc5kR9eglEXMxaKblEngsd8hzuujLSDogK-2Alvr23JrdF34bFVME6SuD3_gG-Y9xETXp0f_gA2ypWUDZZO278IHybbuWMXT9FK2mKFORiv2cTxL2bCRveAANEnFd1EmPExYiQ368MYhP2sOGHjgE9PuhAiKtOLnDfixRi9_1E6O9C1fXclci8GxhrT4kMC81YvqcGqaSWKN4LvluG1wVU-CxU5Dq2g_JOKaGfF_D5k0OtkWP8ChyGrbhpAT6ViKITEfvxSzjU7s6TgyJRaF5S3W34iMMxDiIzCF4-wpZKMIHAChlqm-9m-YDsRLTUZczfBY2YjiD-wYn4yrStp_mj_V5BOhjdcYs3NgBfpdHpL68dp3XoqrvR-yP01TLq8k-oVthiLglYQnDH7-qcDR1kMpVyuoYmMeLzakhKSkKMqpPswEsnJK2j-VaBBDFoel9LTx2BTcUN32RYIbO&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Protocol \u2192",
   },
   {
@@ -378,7 +378,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B1103",
     total: "\u20B113,000 total \u00B7 120 caps",
     review: "3 BioScan reviews \u00B7 Day 0, 45, 90",
-    href: "https://www.tiktok.com/view/product/1733428303279195872?encode_params=MIIBpgQM6dNrbdkOTvBwogfYBIIBgu8q3OELTRGL5lIVIi-jKFlbzK5m0uHR0m2PbWXoa_Hg_YFXs4PbWQUBSIHWVj2VtzyYoFg8wDqdj9okLKuJ7WsnnHy_z8K2iQk98eKAvP05D8Bfa6LBEDhWoyurHqc50v7ia-lgRWgWpYa1tibD67EdhCzQT7khHjkIYcKluZQqa5vyh1EF_788Hf1Op0oOrNpZAdgnY_58G7AKoeYh_UICgtps801m4mUPkvu8b8tOFVcpb4n1Ka2ylxvGzBgMFM0H8LcgjY99dqgsZVxWfeJDrzJrPbfo_hqRRN0PIXk_JX9te1aARmMYQHm5KHsSEsT94OGUo0RFFfnF5oA9LIoxXAV3rjAgS8qf4hX25wrE-0fR_9SiT2db7CpGmJqB5dBtfVgNac8tCrxeQRgrE7G8OIWxrTQQQ-aGsn0GUjHU_EcXDLI0iWkOhCIXIzKaeSxDm_P95ZONqZIilNd7vxSJk4k7xWZW2Sx0A_XYZKH-BqXDoQ5Hre1dH5jT1gV2SCGzBBABtY_mcmiwwFM0CyPkYs4U&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
+    href: "https://www.tiktok.com/view/product/1735690692352444128?encode_params=MIIBpgQM6gRwTX7tnU3CMwc5BIIBgqb9PASRMlbwByBFx8sG8dBw2qI4JtUHzC4v27UvKNIIt5hcX29oYhj9WXDDLoVLEzJymOZqqdf-jBqyrwpA44__jNCsdwbG5fwnwkn9lZuJLlC6QHWG20-g-K1vqzdi3tIlj-0joow17mXtKIcbCf-8j-zXU3m6oSwLYmTmDysDgMTCDoHLgRjwGpQSEDb2glCH8ymE2UGcXlV1Z9NHoMc5zwF-aVJ32PMNbJPRIsijOg6RjWCLcm6jIQhSVB2M28wllckPQAkdIjQti-c1tpUJLR2h-aoJur0OUfyQtWm6imnGIgPSMwrc_OEYVd9tMrCWmHSD9577s3ZBYQd6zGUznG0r73SfPPWK2gsHAg8NKtbGPtQMgIpRBN-XvIp7SyJgmtLlNQuyFZA-gmtsWIY3EoabtMFFLSDy3nTxF165C6lDAd3uUipa3RydLuyc0RUV8B5NsD1rRZC4jpGRyVtyvmf7T5II96hzuLX4FVixJaJY-Xf9JLlqECR-nyAPY3SKBBDdRBJcB0L-R7luyxaDP-LB&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Grow \u2192",
     featured: true,
   },
@@ -388,7 +388,7 @@ export const offerCards: OfferCard[] = [
     pricePerCapsule: "\u20B187",
     total: "\u20B139,000 total \u00B7 400 caps",
     review: "3 BioScan reviews \u00B7 full-cycle supply",
-    href: "https://www.tiktok.com/view/product/1733428303279195872?encode_params=MIIBpgQM6dNrbdkOTvBwogfYBIIBgu8q3OELTRGL5lIVIi-jKFlbzK5m0uHR0m2PbWXoa_Hg_YFXs4PbWQUBSIHWVj2VtzyYoFg8wDqdj9okLKuJ7WsnnHy_z8K2iQk98eKAvP05D8Bfa6LBEDhWoyurHqc50v7ia-lgRWgWpYa1tibD67EdhCzQT7khHjkIYcKluZQqa5vyh1EF_788Hf1Op0oOrNpZAdgnY_58G7AKoeYh_UICgtps801m4mUPkvu8b8tOFVcpb4n1Ka2ylxvGzBgMFM0H8LcgjY99dqgsZVxWfeJDrzJrPbfo_hqRRN0PIXk_JX9te1aARmMYQHm5KHsSEsT94OGUo0RFFfnF5oA9LIoxXAV3rjAgS8qf4hX25wrE-0fR_9SiT2db7CpGmJqB5dBtfVgNac8tCrxeQRgrE7G8OIWxrTQQQ-aGsn0GUjHU_EcXDLI0iWkOhCIXIzKaeSxDm_P95ZONqZIilNd7vxSJk4k7xWZW2Sx0A_XYZKH-BqXDoQ5Hre1dH5jT1gV2SCGzBBABtY_mcmiwwFM0CyPkYs4U&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
+    href: "https://www.tiktok.com/view/product/1735691058658576096?encode_params=MIIBpgQMrB_SQROzosUZKsuhBIIBgsyscgTJ0mPqIxhoFlw8UMkKGz1y6UVkfFJ3w0SwJWS060qNslbIkTMmYOV6RclFyisE1hhz7v6_yuRt-s__tTXYjEdpNdkMDuO2Xy0zoM2iFGcgk-KJDT49tK6xCNh6csDFn0TDgXe8LmZ4epmeus-Olo_aMA2Tul56BPGTNUoKBKSKH1CTDVQcjB9lg4_NDH6vhSb2C-WrIka66iPxhD8OpSWdn8oZqPAUJguDBSqokgELM2tcdcxtxDLtzQGih_qKOyNDNXPYPsuJn67UxIioJfrir7kpUDyezaW8RkOHDCkTyy1luQXs69B3xTkJEvQCUY8dr-7TheCudPJsF7E4BOEVg1n23-UuvQ4Rftb_S0fyPhnooDE7OAPsRZDtAx5WSigeSEwqxt1FEwy5_CtkT72nhDKnF-HxDchgG7SY2vwgQY--pYvmzI8QcRnjVVC-SOmVzM4axlhCnAnzAKKMqPmBjGwZmr6GRnVDgWrt36krNq125pvPp2G-8F85lrPuBBBdQjsJZ1xOR-oq46mDXRsR&region=PH&locale=en&source=seller_center&hide_tips=&no-cache=1&e=1",
     ctaLabel: "Start Power \u2192",
   },
 ];
