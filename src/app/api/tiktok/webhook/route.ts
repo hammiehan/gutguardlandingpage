@@ -1,6 +1,8 @@
 import crypto from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
+import { normalizeTikTokShopOrder } from "@/lib/tiktok-shop-orders";
+
 type TikTokWebhookEnvelope = {
   client_key?: string;
   event?: string;
@@ -133,97 +135,277 @@ function parseContent(content: TikTokWebhookEnvelope["content"]) {
   return getObject(content) ?? {};
 }
 
-function pickFirstString(record: Record<string, unknown>, keys: string[]) {
-  for (const key of keys) {
-    const value = getString(record[key]);
+function getRecordCandidates(content: Record<string, unknown>) {
+  const orderInfo = getObject(content.order_info);
+  const data = getObject(content.data);
 
-    if (value) {
-      return value;
+  return [content, orderInfo, data].filter(
+    (record): record is Record<string, unknown> => Boolean(record),
+  );
+}
+
+function pickFirstString(records: Array<Record<string, unknown>>, keys: string[]) {
+  for (const record of records) {
+    for (const key of keys) {
+      const value = getString(record[key]);
+
+      if (value) {
+        return value;
+      }
     }
   }
 
   return null;
 }
 
-function pickFirstNumber(record: Record<string, unknown>, keys: string[]) {
-  for (const key of keys) {
-    const value = getNumber(record[key]);
+function pickFirstNumber(records: Array<Record<string, unknown>>, keys: string[]) {
+  for (const record of records) {
+    for (const key of keys) {
+      const value = getNumber(record[key]);
 
-    if (value !== null) {
-      return value;
+      if (value !== null) {
+        return value;
+      }
     }
   }
 
   return null;
 }
 
-function buildEventKey(body: TikTokWebhookEnvelope, content: Record<string, unknown>) {
-  const orderId = pickFirstString(content, [
+function buildFallbackEventKey(rawBody: string) {
+  return crypto.createHash("sha256").update(rawBody).digest("hex");
+}
+
+function resolveOrderId(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
     "order_id",
     "orderId",
     "trade_order_id",
     "tradeOrderId",
     "external_order_id",
     "externalOrderId",
+    "shop_order_id",
+    "shopOrderId",
   ]);
+}
 
-  return [
+function resolveOrderStatus(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
+    "order_status",
+    "trade_order_status",
+    "tradeOrderStatus",
+    "status",
+    "order_state",
+    "orderState",
+  ]);
+}
+
+function resolveOfferName(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
+    "offer_name",
+    "offerName",
+    "product_name",
+    "productName",
+    "sku_name",
+    "skuName",
+    "title",
+  ]);
+}
+
+function resolveAmount(records: Array<Record<string, unknown>>) {
+  return pickFirstNumber(records, [
+    "amount",
+    "total_amount",
+    "totalAmount",
+    "payment_amount",
+    "paymentAmount",
+    "price",
+    "refund_amount",
+    "refundAmount",
+  ]);
+}
+
+function resolveProductId(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
+    "product_id",
+    "productId",
+    "third_product_id",
+    "thirdProductId",
+    "item_id",
+    "itemId",
+  ]);
+}
+
+function resolveSkuId(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
+    "sku_id",
+    "skuId",
+    "seller_sku",
+    "sellerSku",
+    "variant_id",
+    "variantId",
+  ]);
+}
+
+function resolveCurrency(records: Array<Record<string, unknown>>) {
+  return pickFirstString(records, [
+    "currency",
+    "currency_code",
+    "currencyCode",
+  ]);
+}
+
+function buildEventKey(
+  body: TikTokWebhookEnvelope,
+  records: Array<Record<string, unknown>>,
+  rawBody: string,
+) {
+  const orderId = resolveOrderId(records);
+
+  const baseKey = [
     getString(body.client_key) ?? "unknown-client",
     getString(body.event) ?? "unknown-event",
     String(body.create_time ?? 0),
     getString(body.user_openid) ?? "unknown-user",
     orderId ?? "no-order",
   ].join(":");
+
+  if (orderId || getString(body.event) || body.create_time || getString(body.user_openid)) {
+    return baseKey;
+  }
+
+  return `raw:${buildFallbackEventKey(rawBody)}`;
 }
 
-function buildWebhookEventRecord(
+function buildDiagnosticHeaders(request: NextRequest, extras?: Record<string, unknown>) {
+  return {
+    "tiktok-signature": request.headers.get("TikTok-Signature"),
+    "user-agent": request.headers.get("user-agent"),
+    "x-forwarded-for": request.headers.get("x-forwarded-for"),
+    ...(extras ?? {}),
+  };
+}
+
+function buildRawPayload(payload: TikTokWebhookEnvelope | null, rawBody: string) {
+  if (payload) {
+    return getObject(payload) ?? {};
+  }
+
+  return {
+    _raw_body: rawBody,
+  };
+}
+
+async function saveWebhookEventRecord(record: Record<string, unknown>) {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    apikey: SUPABASE_SERVICE_ROLE_KEY!,
+    Prefer: "resolution=merge-duplicates,return=representation",
+  };
+
+  if (!isSupabaseOpaqueKey(SUPABASE_SERVICE_ROLE_KEY!)) {
+    headers.Authorization = `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`;
+  }
+
+  return fetch(
+    `${SUPABASE_URL}/rest/v1/tiktok_webhook_events?on_conflict=event_key`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify(record),
+      cache: "no-store",
+    },
+  );
+}
+
+async function saveNormalizedOrderRecord(record: Record<string, unknown>) {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    apikey: SUPABASE_SERVICE_ROLE_KEY!,
+    Prefer: "resolution=merge-duplicates,return=representation",
+  };
+
+  if (!isSupabaseOpaqueKey(SUPABASE_SERVICE_ROLE_KEY!)) {
+    headers.Authorization = `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`;
+  }
+
+  return fetch(
+    `${SUPABASE_URL}/rest/v1/tiktok_shop_orders?on_conflict=order_id`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify(record),
+      cache: "no-store",
+    },
+  );
+}
+
+function buildRejectedWebhookRecord(
   request: NextRequest,
-  body: TikTokWebhookEnvelope,
-  content: Record<string, unknown>,
-  rawPayload: Record<string, unknown>,
-  signatureValid: boolean,
+  rawBody: string,
+  payload: TikTokWebhookEnvelope | null,
+  signatureReason: string,
 ) {
-  const eventCreatedAt = parseUnixTimestamp(body.create_time);
-
-  const amount =
-    pickFirstNumber(content, ["amount", "total_amount", "payment_amount", "price"]) ??
-    pickFirstNumber(getObject(content.order_info) ?? {}, ["amount", "total_amount", "payment_amount", "price"]);
-
-  const offerName =
-    pickFirstString(content, ["offer_name", "product_name", "sku_name"]) ??
-    pickFirstString(getObject(content.order_info) ?? {}, ["offer_name", "product_name", "sku_name"]);
+  const content = parseContent(payload?.content);
+  const records = getRecordCandidates(content);
 
   return {
     platform: "tiktok",
-    event_key: buildEventKey(body, content),
+    event_key: buildEventKey(payload ?? {}, records, rawBody),
+    client_key: getString(payload?.client_key),
+    event_name: getString(payload?.event),
+    event_created_at: parseUnixTimestamp(payload?.create_time),
+    user_openid: getString(payload?.user_openid),
+    external_order_id: resolveOrderId(records),
+    order_status: resolveOrderStatus(records),
+    offer_name: resolveOfferName(records),
+    product_id: resolveProductId(records),
+    sku_id: resolveSkuId(records),
+    amount: resolveAmount(records),
+    currency: resolveCurrency(records),
+    signature_valid: false,
+    headers: buildDiagnosticHeaders(request, {
+      verification_reason: signatureReason,
+    }),
+    raw_content: content,
+    raw_payload: buildRawPayload(payload, rawBody),
+  };
+}
+
+function tryParsePayload(rawBody: string) {
+  try {
+    return JSON.parse(rawBody) as TikTokWebhookEnvelope;
+  } catch {
+    return null;
+  }
+}
+
+function buildAcceptedWebhookRecord(
+  request: NextRequest,
+  rawBody: string,
+  body: TikTokWebhookEnvelope,
+  content: Record<string, unknown>,
+) {
+  const records = getRecordCandidates(content);
+
+  return {
+    platform: "tiktok",
+    event_key: buildEventKey(body, records, rawBody),
     client_key: getString(body.client_key),
     event_name: getString(body.event),
-    event_created_at: eventCreatedAt,
+    event_created_at: parseUnixTimestamp(body.create_time),
     user_openid: getString(body.user_openid),
-    external_order_id: pickFirstString(content, [
-      "order_id",
-      "orderId",
-      "trade_order_id",
-      "tradeOrderId",
-      "external_order_id",
-      "externalOrderId",
-    ]),
-    order_status: pickFirstString(content, ["order_status", "trade_order_status", "status"]),
-    offer_name: offerName,
-    product_id: pickFirstString(content, ["product_id", "productId"]),
-    sku_id: pickFirstString(content, ["sku_id", "skuId"]),
-    amount,
-    currency:
-      pickFirstString(content, ["currency", "currency_code"]) ??
-      pickFirstString(getObject(content.order_info) ?? {}, ["currency", "currency_code"]),
-    signature_valid: signatureValid,
-    headers: {
-      "tiktok-signature": request.headers.get("TikTok-Signature"),
-      "user-agent": request.headers.get("user-agent"),
-      "x-forwarded-for": request.headers.get("x-forwarded-for"),
-    },
+    external_order_id: resolveOrderId(records),
+    order_status: resolveOrderStatus(records),
+    offer_name: resolveOfferName(records),
+    product_id: resolveProductId(records),
+    sku_id: resolveSkuId(records),
+    amount: resolveAmount(records),
+    currency: resolveCurrency(records),
+    signature_valid: true,
+    headers: buildDiagnosticHeaders(request),
     raw_content: content,
-    raw_payload: rawPayload,
+    raw_payload: buildRawPayload(body, rawBody),
   };
 }
 
@@ -237,18 +419,32 @@ export async function POST(request: NextRequest) {
   }
 
   const rawBody = await request.text();
+  const payload = tryParsePayload(rawBody);
   const signatureCheck = verifySignature(rawBody, request.headers.get("TikTok-Signature"));
 
   if (!signatureCheck.ok) {
-    console.error("[tiktok-webhook] Signature verification failed:", signatureCheck.reason);
-    return NextResponse.json({ error: signatureCheck.reason }, { status: 401 });
+    const signatureReason = signatureCheck.reason ?? "Signature verification failed.";
+    const rejectedRecord = buildRejectedWebhookRecord(
+      request,
+      rawBody,
+      payload,
+      signatureReason,
+    );
+    const rejectedSaveResponse = await saveWebhookEventRecord(rejectedRecord);
+
+    if (!rejectedSaveResponse.ok) {
+      const details = await rejectedSaveResponse.text();
+      console.error("[tiktok-webhook] Failed to store rejected webhook attempt.", {
+        details,
+        reason: signatureReason,
+      });
+    }
+
+    console.error("[tiktok-webhook] Signature verification failed:", signatureReason);
+    return NextResponse.json({ error: signatureReason }, { status: 401 });
   }
 
-  let payload: TikTokWebhookEnvelope;
-
-  try {
-    payload = JSON.parse(rawBody) as TikTokWebhookEnvelope;
-  } catch {
+  if (!payload) {
     console.error("[tiktok-webhook] Invalid JSON payload:", rawBody);
     return NextResponse.json({ error: "Invalid JSON payload." }, { status: 400 });
   }
@@ -259,34 +455,13 @@ export async function POST(request: NextRequest) {
   }
 
   const content = parseContent(payload.content);
-  const rawPayload = getObject(payload) ?? {};
-  const webhookEventRecord = buildWebhookEventRecord(
+  const webhookEventRecord = buildAcceptedWebhookRecord(
     request,
+    rawBody,
     payload,
     content,
-    rawPayload,
-    true,
   );
-
-  const headers: Record<string, string> = {
-    "Content-Type": "application/json",
-    apikey: SUPABASE_SERVICE_ROLE_KEY,
-    Prefer: "resolution=merge-duplicates,return=representation",
-  };
-
-  if (!isSupabaseOpaqueKey(SUPABASE_SERVICE_ROLE_KEY)) {
-    headers.Authorization = `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`;
-  }
-
-  const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/tiktok_webhook_events?on_conflict=event_key`,
-    {
-      method: "POST",
-      headers,
-      body: JSON.stringify(webhookEventRecord),
-      cache: "no-store",
-    },
-  );
+  const response = await saveWebhookEventRecord(webhookEventRecord);
 
   if (!response.ok) {
     const errorText = await response.text();
@@ -305,10 +480,31 @@ export async function POST(request: NextRequest) {
   }
 
   const [savedEvent] = (await response.json()) as Array<{ id: string; event_key: string }>;
+  const normalizedOrder = normalizeTikTokShopOrder(payload, "webhook");
+
+  if (normalizedOrder) {
+    const orderSaveResponse = await saveNormalizedOrderRecord(normalizedOrder);
+
+    if (!orderSaveResponse.ok) {
+      const details = await orderSaveResponse.text();
+      console.error("[tiktok-webhook] Failed to mirror order into tiktok_shop_orders.", {
+        details,
+        eventKey: webhookEventRecord.event_key,
+        orderId: normalizedOrder.order_id,
+      });
+    }
+  }
 
   return NextResponse.json({
     ok: true,
     id: savedEvent?.id ?? null,
     event_key: savedEvent?.event_key ?? webhookEventRecord.event_key,
+  });
+}
+
+export async function GET() {
+  return NextResponse.json({
+    ok: true,
+    route: "tiktok-webhook",
   });
 }
