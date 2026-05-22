@@ -1,0 +1,101 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/_not-found/page-09d5d033c70b214e.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/css/795113897bfc6871.css",
+      "static/chunks/app/layout-86e6476cf99ed6b5.js"
+    ],
+    "/api/auth/tiktok/callback/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/api/auth/tiktok/callback/route-1f165b427a56838b.js"
+    ],
+    "/api/auth/tiktok/start/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/api/auth/tiktok/start/route-2c857f1a1ce90885.js"
+    ],
+    "/auth/callback/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/auth/callback/route-bd93d2ed1daaf3be.js"
+    ],
+    "/auth/confirm/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/auth/confirm/route-e6d21010699caa69.js"
+    ],
+    "/api/tiktok/webhook/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/api/tiktok/webhook/route-1c9f50be5a0d2bf3.js"
+    ],
+    "/api/leads/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/api/leads/route-2bbc3c26f9a2f0ae.js"
+    ],
+    "/api/purchase-clicks/route": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/app/api/purchase-clicks/route-1a3e1c7c17899428.js"
+    ],
+    "/login/page": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/44530001-ef9b4b93eb62cba4.js",
+      "static/chunks/645-7b9ddae71134f708.js",
+      "static/chunks/app/login/page-e3620655c6f45fcc.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/874-4effb3e643e2c4ee.js",
+      "static/chunks/app/page-738b252a390f03f1.js"
+    ],
+    "/privacy/page": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/874-4effb3e643e2c4ee.js",
+      "static/chunks/app/privacy/page-aac516975e7605eb.js"
+    ],
+    "/terms/page": [
+      "static/chunks/webpack-595145ab968199ef.js",
+      "static/chunks/4bd1b696-871c5200affe83d3.js",
+      "static/chunks/684-558355cf28ae4d51.js",
+      "static/chunks/main-app-4ab7d70d69180807.js",
+      "static/chunks/874-4effb3e643e2c4ee.js",
+      "static/chunks/app/terms/page-4bca0bab906c5125.js"
+    ]
+  }
+}

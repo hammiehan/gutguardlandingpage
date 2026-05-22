@@ -1,25 +1,10 @@
 "use client";
 
-import type { MouseEvent } from "react";
 import { useEffect, useState } from "react";
+import StartBioScanButton from "@/components/auth/StartBioScanButton";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
-
-  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const target = document.getElementById("offer");
-
-    if (!target) {
-      return;
-    }
-
-    const top = target.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top, behavior: "smooth" });
-    window.history.replaceState(null, "", "#offer");
-    window.ttq?.track("Contact", { content_name: "sticky_cta" });
-  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,9 +29,9 @@ export default function StickyCTA() {
           Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
         </div>
       </div>
-      <a href="#offer" className="sk-btn" onClick={handleClick}>
+      <StartBioScanButton className="sk-btn" contentName="sticky_cta">
         Start My BioScan {"\u2192"}
-      </a>
+      </StartBioScanButton>
     </div>
   );
 }

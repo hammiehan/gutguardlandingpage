@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
+import StartBioScanButton from "@/components/auth/StartBioScanButton";
 import Reveal from "@/components/landing/Reveal";
 import { heroContent, heroRingStates, type HeroChip, type HeroState } from "@/lib/landing-data";
 
@@ -168,12 +169,12 @@ export default function Hero() {
 
               <Reveal delay={0.24}>
                 <div className="hero-btns">
-                  <a href="#offer" className="btn-primary">
+                  <StartBioScanButton className="btn-primary" contentName="hero_cta">
                     Find My Score
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                  </a>
+                  </StartBioScanButton>
                   <a href="#how" className="btn-ghost">
                     How it works
                   </a>

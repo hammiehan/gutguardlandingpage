@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/auth/tiktok/callback/route": "/api/auth/tiktok/callback",
+  "/api/tiktok/webhook/route": "/api/tiktok/webhook",
+  "/api/auth/tiktok/start/route": "/api/auth/tiktok/start",
+  "/api/leads/route": "/api/leads",
+  "/auth/callback/route": "/auth/callback",
+  "/api/purchase-clicks/route": "/api/purchase-clicks",
+  "/auth/confirm/route": "/auth/confirm",
+  "/login/page": "/login",
+  "/page": "/",
+  "/privacy/page": "/privacy",
+  "/terms/page": "/terms"
+}

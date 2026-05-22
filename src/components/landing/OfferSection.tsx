@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
+import StartBioScanButton from "@/components/auth/StartBioScanButton";
 import Reveal from "@/components/landing/Reveal";
 import { doctorStripContent, offerCards, offerSectionContent } from "@/lib/landing-data";
-import { TIKTOK_PIXEL_ID } from "@/lib/tiktok";
 
 function AnimatedCount({ target }: { target: number }) {
   const [count, setCount] = useState(0);
@@ -136,27 +135,12 @@ export default function OfferSection() {
                     {card.review}
                   </div>
                 </div>
-                <TikTokTrackedLink
-                  href={card.href}
+                <StartBioScanButton
                   className="proto-cta"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  eventPayload={{ content_name: card.name, value: card.total }}
-                  purchaseClickPayload={{
-                    offer_name: card.name,
-                    offer_href: card.href,
-                    tiktok_pixel_id: TIKTOK_PIXEL_ID,
-                    metadata: {
-                      capsule_summary: card.capsuleSummary,
-                      price_per_capsule: card.pricePerCapsule,
-                      total: card.total,
-                      review: card.review,
-                      featured: Boolean(card.featured),
-                    },
-                  }}
+                  contentName={`offer_${card.name.toLowerCase()}`}
                 >
                   {card.ctaLabel}
-                </TikTokTrackedLink>
+                </StartBioScanButton>
               </div>
             </Reveal>
           ))}

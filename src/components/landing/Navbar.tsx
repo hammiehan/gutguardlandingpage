@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import TikTokTrackedLink from "@/components/analytics/TikTokTrackedLink";
+import StartBioScanButton from "@/components/auth/StartBioScanButton";
 
 export default function Navbar() {
   const [isStuck, setIsStuck] = useState(false);
@@ -43,9 +43,9 @@ export default function Navbar() {
       <a href="gutguard-physician-acquisition.html" className="nav-dr">
         Are you a physician?
       </a>
-      <TikTokTrackedLink href="#offer" className="nav-cta" eventPayload={{ content_name: "navbar_cta" }}>
+      <StartBioScanButton className="nav-cta" contentName="navbar_cta">
         Start My BioScan {"\u2192"}
-      </TikTokTrackedLink>
+      </StartBioScanButton>
     </nav>
   );
 }
