@@ -29,7 +29,7 @@ export default function StickyCTA() {
           Trial {"\u20B1"}1,299 {"\u00B7"} Grow {"\u20B1"}13,000 {"\u00B7"} Physician-reviewed
         </div>
       </div>
-      <StartBioScanButton className="sk-btn" contentName="sticky_cta">
+      <StartBioScanButton className="sk-btn" contentName="sticky_cta" signedInChildren={<>Choose Your Protocol {"\u2192"}</>}>
         Start My BioScan {"\u2192"}
       </StartBioScanButton>
     </div>

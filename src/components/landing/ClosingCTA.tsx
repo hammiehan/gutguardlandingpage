@@ -26,6 +26,7 @@ export default function ClosingCTA() {
               className="btn-primary"
               style={{ fontSize: 18, padding: "20px 40px" }}
               contentName="closing_cta"
+              signedInChildren={<>Choose Your Protocol {"\u2192"}</>}
             >
               Start My BioScan {"\u2192"}
             </StartBioScanButton>

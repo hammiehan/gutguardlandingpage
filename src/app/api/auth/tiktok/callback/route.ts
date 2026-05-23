@@ -7,6 +7,7 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const TIKTOK_CLIENT_KEY = process.env.TIKTOK_CLIENT_KEY;
 const TIKTOK_CLIENT_SECRET = process.env.TIKTOK_CLIENT_SECRET;
 const APP_URL = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXT_PUBLIC_APP_URL;
+const TIKTOK_REDIRECT_URI = process.env.TIKTOK_REDIRECT_URI ?? (APP_URL ? `${APP_URL}/api/auth/tiktok/callback` : null);
 const TIKTOK_TOKEN_URL = "https://open.tiktokapis.com/v2/oauth/token/";
 const TIKTOK_USER_INFO_URL = "https://open.tiktokapis.com/v2/user/info/";
 
@@ -66,7 +67,7 @@ function getExpiryIso(expiresInSeconds: number | undefined) {
 }
 
 async function exchangeCodeForToken(code: string) {
-  if (!TIKTOK_CLIENT_KEY || !TIKTOK_CLIENT_SECRET || !APP_URL) {
+  if (!TIKTOK_CLIENT_KEY || !TIKTOK_CLIENT_SECRET || !TIKTOK_REDIRECT_URI) {
     throw new Error("Missing TikTok OAuth environment variables.");
   }
 
@@ -75,7 +76,7 @@ async function exchangeCodeForToken(code: string) {
     client_secret: TIKTOK_CLIENT_SECRET,
     code,
     grant_type: "authorization_code",
-    redirect_uri: `${APP_URL}/api/auth/tiktok/callback`,
+    redirect_uri: TIKTOK_REDIRECT_URI,
   });
 
   const response = await fetch(TIKTOK_TOKEN_URL, {
@@ -232,7 +233,7 @@ export async function GET(request: NextRequest) {
     });
 
     const response = userData.user
-      ? NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/bioscan"))
+      ? NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/?signed_in=1#offer"))
       : NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/login?provider=tiktok"));
 
     response.cookies.set({

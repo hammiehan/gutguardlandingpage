@@ -1,3 +1,5 @@
+import AuthWelcomeBanner from "@/components/auth/AuthWelcomeBanner";
+import AuthCodeInterceptor from "@/components/auth/AuthCodeInterceptor";
 import ClosingCTA from "@/components/landing/ClosingCTA";
 import FloatingWhatsapp from "@/components/landing/FloatingWhatsapp";
 import Footer from "@/components/landing/Footer";
@@ -18,7 +20,9 @@ import WhyInflammation from "@/components/landing/WhyInflammation";
 export default function HomePage() {
   return (
     <>
+      <AuthCodeInterceptor />
       <Navbar />
+      <AuthWelcomeBanner />
       <main>
         <Hero />
         <ProofStrip />

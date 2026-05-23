@@ -4,6 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+import { useAuthUser } from "@/lib/auth/use-auth-user";
 import { TIKTOK_CONTACT_EVENT } from "@/lib/tiktok";
 
 type StartBioScanButtonProps = {
@@ -14,6 +15,7 @@ type StartBioScanButtonProps = {
   eventName?: string;
   eventPayload?: Record<string, unknown>;
   purchaseClickPayload?: Record<string, unknown>;
+  signedInChildren?: ReactNode;
   style?: CSSProperties;
 };
 
@@ -25,10 +27,12 @@ export default function StartBioScanButton({
   eventName = TIKTOK_CONTACT_EVENT,
   eventPayload,
   purchaseClickPayload,
+  signedInChildren,
   style,
 }: StartBioScanButtonProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const { user } = useAuthUser();
 
   async function handleClick() {
     const supabase = getSupabaseBrowserClient();
@@ -83,7 +87,7 @@ export default function StartBioScanButton({
 
   return (
     <button type="button" className={className} style={style} onClick={handleClick}>
-      {children}
+      {user && signedInChildren ? signedInChildren : children}
     </button>
   );
 }

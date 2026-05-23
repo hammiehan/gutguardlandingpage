@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import StartBioScanButton from "@/components/auth/StartBioScanButton";
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+import { useAuthUser } from "@/lib/auth/use-auth-user";
 
 export default function Navbar() {
   const [isStuck, setIsStuck] = useState(false);
+  const router = useRouter();
+  const { user } = useAuthUser();
 
   useEffect(() => {
     const onScroll = () => {
@@ -19,6 +24,13 @@ export default function Navbar() {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
+
+  async function handleSignOut() {
+    const supabase = getSupabaseBrowserClient();
+    await supabase.auth.signOut();
+    router.push("/");
+    router.refresh();
+  }
 
   return (
     <nav id="nav" className={isStuck ? "stuck" : undefined}>
@@ -43,9 +55,35 @@ export default function Navbar() {
       <a href="gutguard-physician-acquisition.html" className="nav-dr">
         Are you a physician?
       </a>
-      <StartBioScanButton className="nav-cta" contentName="navbar_cta">
-        Start My BioScan {"\u2192"}
-      </StartBioScanButton>
+      <div style={{ alignItems: "center", display: "flex", gap: 10 }}>
+        {user ? (
+          <>
+            <div style={{ color: "rgba(255,255,255,.72)", fontSize: 12, lineHeight: 1.35, textAlign: "right" }}>
+              <div style={{ color: "#5cb882", fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase" }}>Signed in</div>
+              <div style={{ maxWidth: 220, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user.email}</div>
+            </div>
+            <button
+              type="button"
+              onClick={handleSignOut}
+              style={{
+                background: "transparent",
+                border: "1px solid rgba(255,255,255,.16)",
+                borderRadius: 999,
+                color: "#fff",
+                cursor: "pointer",
+                fontSize: 12,
+                fontWeight: 700,
+                padding: "10px 14px",
+              }}
+            >
+              Log out
+            </button>
+          </>
+        ) : null}
+        <StartBioScanButton className="nav-cta" contentName="navbar_cta" signedInChildren={<>Choose Your Protocol {"\u2192"}</>}>
+          Start My BioScan {"\u2192"}
+        </StartBioScanButton>
+      </div>
     </nav>
   );
 }
