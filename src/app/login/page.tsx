@@ -43,7 +43,9 @@ export default function LoginPage() {
       </main>
       <StickyCTA />
       <FloatingWhatsapp />
-      <LoginPageOverlay />
+      <Suspense fallback={null}>
+        <LoginPageOverlay />
+      </Suspense>
     </>
   );
 }
