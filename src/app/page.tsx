@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import AuthWelcomeBanner from "@/components/auth/AuthWelcomeBanner";
 import AuthCodeInterceptor from "@/components/auth/AuthCodeInterceptor";
 import ClosingCTA from "@/components/landing/ClosingCTA";
@@ -20,9 +22,13 @@ import WhyInflammation from "@/components/landing/WhyInflammation";
 export default function HomePage() {
   return (
     <>
-      <AuthCodeInterceptor />
+      <Suspense fallback={null}>
+        <AuthCodeInterceptor />
+      </Suspense>
       <Navbar />
-      <AuthWelcomeBanner />
+      <Suspense fallback={null}>
+        <AuthWelcomeBanner />
+      </Suspense>
       <main>
         <Hero />
         <ProofStrip />

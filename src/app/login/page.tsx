@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import AuthWelcomeBanner from "@/components/auth/AuthWelcomeBanner";
 import LoginPageOverlay from "@/components/auth/LoginPageOverlay";
 import ClosingCTA from "@/components/landing/ClosingCTA";
@@ -21,7 +23,9 @@ export default function LoginPage() {
   return (
     <>
       <Navbar />
-      <AuthWelcomeBanner />
+      <Suspense fallback={null}>
+        <AuthWelcomeBanner />
+      </Suspense>
       <main>
         <Hero />
         <ProofStrip />
