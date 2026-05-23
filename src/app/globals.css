@@ -338,6 +338,7 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: clamp(16px, 2.8vh, 24px);
   margin-bottom: clamp(24px, 4vh, 32px);
 }
 

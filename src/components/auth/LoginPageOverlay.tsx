@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import SocialLoginModal from "@/components/auth/SocialLoginModal";
@@ -27,6 +27,17 @@ function LoginPageOverlayContent() {
 
   const errorCode = searchParams.get("error");
   const errorMessage = errorCode ? ERROR_MESSAGES[errorCode] ?? "Sign-in failed. Please try again." : null;
+
+  useEffect(() => {
+    function handleReopenModal() {
+      setModalOpen(true);
+    }
+
+    window.addEventListener("gutguard:open-login-modal", handleReopenModal);
+    return () => {
+      window.removeEventListener("gutguard:open-login-modal", handleReopenModal);
+    };
+  }, []);
 
   async function handleGoogleLogin() {
     await signInWithGoogle();

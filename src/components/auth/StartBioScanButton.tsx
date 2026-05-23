@@ -82,6 +82,11 @@ export default function StartBioScanButton({
       return;
     }
 
+    if (pathname === "/login") {
+      window.dispatchEvent(new CustomEvent("gutguard:open-login-modal"));
+      return;
+    }
+
     router.push("/login");
   }
 
