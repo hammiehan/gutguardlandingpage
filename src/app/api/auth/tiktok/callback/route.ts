@@ -232,7 +232,7 @@ export async function GET(request: NextRequest) {
     });
 
     const response = userData.user
-      ? NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/"))
+      ? NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/bioscan"))
       : NextResponse.redirect(getRedirectUrl(requestUrl.origin, "/login?provider=tiktok"));
 
     response.cookies.set({

@@ -138,6 +138,15 @@ export default function OfferSection() {
                 <StartBioScanButton
                   className="proto-cta"
                   contentName={`offer_${card.name.toLowerCase()}`}
+                  authenticatedHref={card.href}
+                  purchaseClickPayload={{
+                    offer_name: card.name,
+                    offer_href: card.href,
+                    metadata: {
+                      review: card.review,
+                      total: card.total,
+                    },
+                  }}
                 >
                   {card.ctaLabel}
                 </StartBioScanButton>

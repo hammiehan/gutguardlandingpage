@@ -31,7 +31,7 @@ export async function GET(request: Request) {
       return NextResponse.redirect(new URL("/login?error=email_confirmation_failed", requestUrl.origin));
     }
 
-    return NextResponse.redirect(new URL("/", requestUrl.origin));
+    return NextResponse.redirect(new URL("/bioscan", requestUrl.origin));
   } catch {
     return NextResponse.redirect(new URL("/login?error=email_confirmation_failed", requestUrl.origin));
   }
