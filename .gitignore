@@ -1,8 +1,15 @@
 node_modules/
 .next/
 .next-build/
+.env
 .env.local
+.env.development
+.env.production
+.env.test
 .env.*.local
+.env.bak
+.env.*
+!.env.example
 dev-server.log
 tsconfig.tsbuildinfo
 npm-debug.log*

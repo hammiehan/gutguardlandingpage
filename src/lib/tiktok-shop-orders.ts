@@ -113,6 +113,9 @@ export type TikTokShopOrderRecord = {
   order_id: string;
   order_status: string | null;
   customer_name: string | null;
+  offer_name: string | null;
+  product_id: string | null;
+  sku_id: string | null;
   item_count: number | null;
   shipping_method: string | null;
   delivery_option: string | null;
@@ -173,6 +176,31 @@ export function normalizeTikTokShopOrder(
       "masked_buyer_name",
       "maskedBuyerName",
       "customer",
+    ]),
+    offer_name: pickFirstString(records, [
+      "offer_name",
+      "offerName",
+      "product_name",
+      "productName",
+      "sku_name",
+      "skuName",
+      "title",
+    ]),
+    product_id: pickFirstString(records, [
+      "product_id",
+      "productId",
+      "third_product_id",
+      "thirdProductId",
+      "item_id",
+      "itemId",
+    ]),
+    sku_id: pickFirstString(records, [
+      "sku_id",
+      "skuId",
+      "seller_sku",
+      "sellerSku",
+      "variant_id",
+      "variantId",
     ]),
     item_count: resolveItemCount(records),
     shipping_method: pickFirstString(records, [
