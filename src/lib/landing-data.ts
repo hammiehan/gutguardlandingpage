@@ -530,8 +530,8 @@ export const footerContent = {
   links: [
     { label: "Are you a physician?", href: "gutguard-physician-acquisition.html" },
     { label: "Patient Portal", href: "gutguard-patient-portal-v33.html" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
     { label: "Refund Policy", href: "#" },
     { label: "Contact", href: "#" },
   ] satisfies FooterLink[],
